@@ -19,14 +19,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './landing.css',
 })
 export class Landing {
-  /** "My approach" steps, each shown under its own circular illustration. */
-  protected readonly approachSteps = [
-    'Understand patterns',
-    'Build new skills',
-    'Strengthen relationships',
-    'Create lasting change',
-  ];
-
   /** "Therapy with me" list. */
   protected readonly therapyPoints = [
     'Individual and couples CBT',

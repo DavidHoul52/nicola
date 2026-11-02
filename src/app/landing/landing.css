@@ -26,13 +26,13 @@
   max-width: var(--container);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: clamp(2rem, 5vw, 4rem);
 }
 .lnd-hero-title {
   font-size: var(--h1-hero);
-  max-width: 18ch;
+  max-width: 14ch;
   margin-bottom: 1.5rem;
 }
 .lnd-hero-subtitle {
@@ -40,9 +40,12 @@
   max-width: 30ch;
   margin-bottom: 2rem;
 }
+/* Large, sitting centre right (the grid's align-items centres it vertically).
+   Matches the artwork's own proportions so nothing is cropped. */
 .lnd-hero-art {
-  max-width: 340px;
-  justify-self: center;
+  aspect-ratio: 1426 / 1548;
+  max-width: 450px;
+  justify-self: end;
 }
 
 /* ============================ ABOUT ME ============================ */
@@ -54,13 +57,19 @@
   max-width: var(--container);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1.4fr;
   align-items: center;
   gap: clamp(2rem, 5vw, 4rem);
 }
+/* Portrait crop of a landscape photo, held on Nicola (left of the frame's centre). */
 .lnd-about-art {
-  max-width: 260px;
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 4 / 5;
   justify-self: center;
+}
+.lnd-about-art img {
+  object-position: 37% center;
 }
 .lnd-about-text {
   max-width: 62ch;
@@ -107,7 +116,7 @@
 .lnd-approach-label {
   font-size: 1rem;
   line-height: 1.4;
-  max-width: 13ch;
+  max-width: 10ch;
 }
 
 /* ===================== THERAPY WITH ME / MY STYLE ===================== */
@@ -194,10 +203,11 @@
     grid-template-columns: 1fr;
   }
   .lnd-hero-art {
-    max-width: 260px;
+    max-width: 340px;
+    justify-self: center;
   }
   .lnd-about-art {
-    max-width: 200px;
+    max-width: 340px;
   }
 
   /* Illustration beside "Therapy with me"; "My style" drops below both. */

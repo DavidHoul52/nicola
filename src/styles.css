@@ -163,6 +163,11 @@ select:focus-visible {
 .img-placeholder img[src=""] {
   visibility: hidden;
 }
+/* Once a real image is in, drop the stripes: they would otherwise show through
+   any transparent areas (e.g. round illustrations on a square canvas). */
+.img-placeholder:has(img:not([src=""])) {
+  background: none;
+}
 
 
 /* ============================================================
@@ -255,7 +260,7 @@ select:focus-visible {
 }
 .brand-tagline {
   margin-top: 0.35rem;
-  font-size: 0.72rem;
+  font-size: 1rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
 }

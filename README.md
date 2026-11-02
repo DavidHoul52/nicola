@@ -31,3 +31,4 @@ npm run build    # prerender to dist/nicola/browser and write 404.html
    with a short page prefix.
 2. Register the route in `src/app/app.routes.ts`.
 3. Add its title, description and canonical to `SEO_BY_PATH` in `src/app/app.ts`.
+# nicola

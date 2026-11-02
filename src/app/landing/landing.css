@@ -1,0 +1,51 @@
+/* Homepage — page-specific layout.
+   Uses the global brand tokens and .btn classes from src/styles.css.
+   Only page-specific rules live here, namespaced with the `lnd-` prefix. */
+
+/* ============================ HERO ============================ */
+/* Image and text share one grid cell so the text sits over the image. */
+.lnd-hero {
+  display: grid;
+  min-height: clamp(26rem, 70vh, 44rem);
+}
+.lnd-hero-bg,
+.lnd-hero-content {
+  grid-area: 1 / 1;
+}
+.lnd-hero-content {
+  /* .img-placeholder is position: relative, and positioned boxes paint above
+     static ones, so the panel must be positioned too to sit on top. */
+  position: relative;
+  align-self: center;
+  justify-self: center;
+  max-width: 48rem;
+  margin: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  /* A solid panel rather than text straight on the photo, so contrast holds
+     whatever image goes in. */
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+}
+.lnd-hero-title {
+  font-size: var(--h1-hero);
+  margin-bottom: 1rem;
+}
+.lnd-hero-subtitle {
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  color: var(--ink-soft);
+  margin-bottom: 1.75rem;
+}
+
+/* ============================ INTRO ============================ */
+.lnd-intro {
+  padding: var(--section-pad) 1.5rem;
+}
+.lnd-intro-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+.lnd-intro-heading {
+  font-size: var(--h2-section);
+  margin-bottom: 1.5rem;
+}

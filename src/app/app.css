@@ -1,0 +1,4 @@
+/* The App shell renders only the shared chrome (header/footer), which is
+   styled by the global src/styles.css — global because that markup spans every
+   routed page. Each page styles itself in its own component CSS. So the shell
+   needs none here. */

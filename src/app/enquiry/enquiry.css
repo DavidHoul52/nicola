@@ -1,0 +1,149 @@
+/* ============================================================
+   Getting started / enquiry — shown above the footer site-wide.
+   Uses the global brand tokens from src/styles.css.
+   ============================================================ */
+
+/* ========================== ENQUIRY ========================== */
+.enquiry {
+  background: var(--cream);
+  padding: var(--section-pad) 1.5rem;
+}
+.enquiry-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(2rem, 6vw, 5rem);
+}
+.enquiry-heading,
+.enquiry-form-heading {
+  font-size: var(--h2-section);
+  font-weight: 400;
+}
+.enquiry-heading {
+  margin-bottom: 2rem;
+}
+.enquiry-lead {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+.enquiry-img-1 {
+  aspect-ratio: 16 / 11;
+}
+.enquiry-form-heading {
+  margin-bottom: 2rem;
+}
+
+/* -------- Enquiry form fields -------- */
+.field-group {
+  border: none;
+  padding: 0;
+  margin: 0 0 1.4rem;
+  min-width: 0;
+}
+.field-group legend {
+  font-size: 1.1rem;
+  padding: 0;
+  margin-bottom: 0.6rem;
+}
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.field {
+  margin-bottom: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.field label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.req {
+  /* Muted, but still 4.5:1 on cream. */
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.9rem;
+  margin-left: 0.3rem;
+}
+/* Filled, outlined boxes. */
+.field input,
+.field textarea {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--ink);
+  padding: 0.75rem 0.9rem;
+  border: 2px solid var(--field-border);
+  border-radius: 0;
+  background: var(--field-bg);
+  outline: none;
+  width: 100%;
+  min-width: 0;
+}
+/* Focus: blue border plus a ring, so it's visible without relying on colour alone. */
+.field input:focus-visible,
+.field textarea:focus-visible {
+  border-color: var(--btn-secondary);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+/* Angular marks touched, invalid controls; match the inline error text. */
+.field input.ng-touched.ng-invalid,
+.field textarea.ng-touched.ng-invalid {
+  border-color: var(--error);
+}
+.field textarea {
+  min-height: 7.5rem;
+  resize: vertical;
+}
+/* hCaptcha widget. It renders only once the form is first focused, so no height
+   is reserved: until then the Send button sits right under the message box.
+   The iframe is a fixed 303px wide, so on very narrow phones it scrolls inside
+   this box rather than pushing the page sideways. */
+.captcha-field {
+  margin-bottom: 1rem;
+  overflow-x: auto;
+}
+.enquiry-submit {
+  font-size: 1.1rem;
+  padding: 0.95rem 2.75rem;
+}
+.enquiry-submit:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+.error {
+  display: block;
+  color: var(--error);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+.form-success {
+  font-size: 1.05rem;
+  padding: 1rem 1.2rem;
+  background: rgba(177, 90, 74, 0.12);
+  border-left: 3px solid var(--terracotta-btn);
+}
+.enquiry-alt {
+  margin-top: 2.5rem;
+  font-size: 0.95rem;
+}
+.enquiry-alt a {
+  color: var(--terracotta-btn);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  word-break: break-word;
+}
+
+/* ============================ RESPONSIVE ============================ */
+@media (max-width: 960px) {
+  .enquiry-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,88 @@
+@if (showChrome()) {
+<!-- ============================ HEADER ============================ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" routerLink="/" (click)="closeMenu()">{{ site.name }}</a>
+
+    <button
+      class="nav-toggle"
+      type="button"
+      [attr.aria-expanded]="menuOpen()"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav" [class.open]="menuOpen()" aria-label="Main">
+      @for (link of navLinks; track link.label) {
+        <a [routerLink]="link.link" [fragment]="link.fragment" (click)="closeMenu()">{{ link.label }}</a>
+      }
+    </nav>
+
+    <div class="header-actions" [class.open]="menuOpen()">
+      <a class="btn btn-primary" routerLink="/" fragment="enquiry" (click)="closeMenu()">Get in touch</a>
+    </div>
+  </div>
+</header>
+}
+
+<router-outlet />
+
+@if (showChrome()) {
+<!-- ===================== GETTING STARTED / ENQUIRY ===================== -->
+<app-enquiry />
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <p class="footer-name">{{ site.name }}</p>
+      @if (site.credentials) {
+        <p class="footer-credentials">{{ site.credentials }}</p>
+      }
+
+      <div class="footer-contact">
+        <p class="footer-contact-item">
+          <span class="footer-icon" aria-hidden="true">✉</span>
+          <a [href]="'mailto:' + site.email">{{ site.email }}</a>
+        </p>
+        @if (site.phone) {
+          <p class="footer-contact-item">
+            <span class="footer-icon" aria-hidden="true">☎</span>
+            <span>{{ site.phone }}</span>
+          </p>
+        }
+        @if (site.address.length) {
+          <p class="footer-contact-item">
+            <span class="footer-icon" aria-hidden="true">📍</span>
+            <span>
+              @for (line of site.address; track $index) {
+                {{ line }}<br />
+              }
+            </span>
+          </p>
+        }
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-section-label">Quick Links</p>
+      <nav class="footer-nav" aria-label="Footer">
+        <a routerLink="/">Home</a>
+        <a routerLink="/" fragment="enquiry">Get in touch</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-credits">
+      <span>© {{ year }} {{ site.name }}</span>
+      <span class="footer-divider">•</span>
+      <span>Website built by <a href="https://truepresencedesign.com/" target="_blank" rel="noopener">TruePresenceDesign</a></span>
+      <span class="footer-divider">•</span>
+      <a routerLink="/privacy">Privacy &amp; Terms</a>
+    </div>
+  </div>
+</footer>
+}

@@ -1,0 +1,101 @@
+<!-- ========================== ENQUIRY ========================== -->
+<section id="enquiry" class="enquiry">
+  <div class="enquiry-inner">
+    <div class="enquiry-left">
+      <h2 class="enquiry-heading">Getting started with Counselling</h2>
+      <p class="enquiry-lead">Every journey starts with a single step.</p>
+      <div class="img-placeholder enquiry-img-1">
+        <img src="" alt="Stepping stones across calm water" />
+      </div>
+    </div>
+
+    <div class="enquiry-right">
+      <h2 class="enquiry-form-heading">Make an enquiry</h2>
+
+      @if (enquirySent()) {
+        <p class="form-success" role="status">
+          Thank you — your enquiry has been received. I’ll be in touch soon.
+        </p>
+      } @else {
+        <form
+          [formGroup]="enquiryForm"
+          (ngSubmit)="submitEnquiry()"
+          (focusin)="prepareCaptcha()"
+          novalidate
+        >
+          <fieldset class="field-group">
+            <legend>Name</legend>
+            <div class="field-row">
+              <div class="field">
+                <label for="firstName">First Name <span class="req">(required)</span></label>
+                <input id="firstName" type="text" autocomplete="given-name" formControlName="firstName" />
+                @if (enquiryForm.get('firstName')?.touched && enquiryForm.get('firstName')?.invalid) {
+                  <small class="error">Please enter your first name.</small>
+                }
+              </div>
+              <div class="field">
+                <label for="lastName">Last Name</label>
+                <input id="lastName" type="text" autocomplete="family-name" formControlName="lastName" />
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="email">Email <span class="req">(required)</span></label>
+            <input id="email" type="email" autocomplete="email" formControlName="email" />
+            @if (enquiryForm.get('email')?.touched && enquiryForm.get('email')?.invalid) {
+              <small class="error">Please enter a valid email address.</small>
+            }
+          </div>
+
+          <div class="field">
+            <label for="subject">Subject <span class="req">(required)</span></label>
+            <input id="subject" type="text" formControlName="subject" />
+            @if (enquiryForm.get('subject')?.touched && enquiryForm.get('subject')?.invalid) {
+              <small class="error">Please enter a subject.</small>
+            }
+          </div>
+
+          <div class="field">
+            <label for="message">Message <span class="req">(required)</span></label>
+            <textarea id="message" rows="4" formControlName="message"></textarea>
+            @if (enquiryForm.get('message')?.touched && enquiryForm.get('message')?.invalid) {
+              <small class="error">Please enter a message.</small>
+            }
+          </div>
+
+          <!-- hCaptcha renders into this host once the form is first touched -->
+          <div class="captcha-field">
+            <div #captchaHost></div>
+            @if (captchaError()) {
+              <small class="error">
+                Please complete the “I am human” check to send your enquiry.
+              </small>
+            }
+            @if (captchaFailed()) {
+              <small class="error">
+                The spam check couldn’t load. Please email me directly using the address below.
+              </small>
+            }
+          </div>
+
+          @if (enquiryError()) {
+            <small class="error" role="alert">
+              Sorry, something went wrong sending your enquiry. Please try again, or email me
+              directly using the address below.
+            </small>
+          }
+
+          <button class="btn btn-primary enquiry-submit" type="submit" [disabled]="enquirySubmitting()">
+            {{ enquirySubmitting() ? 'Sending…' : 'Send' }}
+          </button>
+        </form>
+      }
+
+      <p class="enquiry-alt">
+        Alternatively email me at
+        <a [href]="'mailto:' + email">{{ email }}</a>
+      </p>
+    </div>
+  </div>
+</section>

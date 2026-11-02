@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: nicola
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist/nicola/browser
+    envVars:
+      - key: NODE_VERSION
+        value: 24.15.0
+    # No catch-all rewrite. Every page is prerendered to <path>/index.html, and
+    # Render maps /privacy to privacy/index.html only when no rewrite matches the
+    # path: a "/*" rewrite overrides anything but an exact file match, so it
+    # would send every page to the client-rendered shell. Unknown URLs therefore
+    # get a real 404 status (served from 404.html, see scripts/write-404.mjs).
+    headers:
+      - path: /*
+        name: Strict-Transport-Security
+        value: max-age=31536000; includeSubDomains; preload
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin

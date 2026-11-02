@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   min-height: 70vh;
-  background: var(--light-gray);
+  background: var(--cream-light);
   color: var(--ink);
   padding: var(--section-pad) 1.5rem;
 }
@@ -18,11 +18,11 @@
 }
 
 .nf-code {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-weight: 500;
   font-size: clamp(4rem, 14vw, 8rem);
   line-height: 1;
-  color: var(--terracotta);
+  color: var(--accent);
   margin: 0;
 }
 

@@ -2,7 +2,10 @@
 <!-- ============================ HEADER ============================ -->
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" routerLink="/" (click)="closeMenu()">{{ site.name }}</a>
+    <a class="brand" routerLink="/" (click)="closeMenu()">
+      <span class="brand-name">{{ site.name }}</span>
+      <span class="brand-tagline">{{ site.tagline }}</span>
+    </a>
 
     <button
       class="nav-toggle"
@@ -16,13 +19,17 @@
 
     <nav class="main-nav" [class.open]="menuOpen()" aria-label="Main">
       @for (link of navLinks; track link.label) {
-        <a [routerLink]="link.link" [fragment]="link.fragment" (click)="closeMenu()">{{ link.label }}</a>
+        <a
+          [routerLink]="link.link"
+          [fragment]="link.fragment"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="navActiveOptions"
+          ariaCurrentWhenActive="page"
+          (click)="closeMenu()"
+          >{{ link.label }}</a
+        >
       }
     </nav>
-
-    <div class="header-actions" [class.open]="menuOpen()">
-      <a class="btn btn-primary" routerLink="/" fragment="enquiry" (click)="closeMenu()">Get in touch</a>
-    </div>
   </div>
 </header>
 }
@@ -70,6 +77,8 @@
       <p class="footer-section-label">Quick Links</p>
       <nav class="footer-nav" aria-label="Footer">
         <a routerLink="/">Home</a>
+        <a routerLink="/" fragment="about">About me</a>
+        <a routerLink="/" fragment="therapy">Therapy with me</a>
         <a routerLink="/" fragment="enquiry">Get in touch</a>
       </nav>
     </div>

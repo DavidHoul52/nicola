@@ -70,7 +70,7 @@
 /* Filled, outlined boxes. */
 .field input,
 .field textarea {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 1rem;
   color: var(--ink);
   padding: 0.75rem 0.9rem;
@@ -84,7 +84,7 @@
 /* Focus: blue border plus a ring, so it's visible without relying on colour alone. */
 .field input:focus-visible,
 .field textarea:focus-visible {
-  border-color: var(--btn-secondary);
+  border-color: var(--navy);
   box-shadow: 0 0 0 3px var(--focus-ring);
 }
 /* Angular marks touched, invalid controls; match the inline error text. */
@@ -121,15 +121,15 @@
 .form-success {
   font-size: 1.05rem;
   padding: 1rem 1.2rem;
-  background: rgba(177, 90, 74, 0.12);
-  border-left: 3px solid var(--terracotta-btn);
+  background: var(--mist);
+  border-left: 3px solid var(--navy);
 }
 .enquiry-alt {
   margin-top: 2.5rem;
   font-size: 0.95rem;
 }
 .enquiry-alt a {
-  color: var(--terracotta-btn);
+  color: var(--navy);
   text-decoration: underline;
   text-underline-offset: 3px;
   word-break: break-word;

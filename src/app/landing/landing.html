@@ -1,21 +1,116 @@
 <main id="top">
   <!-- ============================ HERO ============================ -->
   <section class="lnd-hero">
-    <div class="lnd-hero-bg img-placeholder">
-      <img src="" alt="Calm landscape at first light" />
-    </div>
-    <div class="lnd-hero-content">
-      <h1 class="lnd-hero-title">Headline to come</h1>
-      <p class="lnd-hero-subtitle">A short line on who this counselling is for.</p>
-      <a class="btn btn-primary" routerLink="/" fragment="enquiry">Get in touch</a>
+    <div class="lnd-hero-inner">
+      <div class="lnd-hero-text">
+        <h1 class="lnd-hero-title">Change begins with understanding</h1>
+        <p class="lnd-hero-subtitle">
+          Individual and couples CBT therapy in a supportive, non-judgemental space.
+        </p>
+        <a class="btn btn-outline" routerLink="/" fragment="enquiry"
+          >Get in touch <span class="btn-icon" aria-hidden="true">→</span></a
+        >
+      </div>
+      <!-- Illustration: abstract circles and lines (large) -->
+      <div class="img-placeholder lnd-art lnd-hero-art">
+        <img src="" alt="" />
+      </div>
     </div>
   </section>
 
-  <!-- ============================ INTRO ============================ -->
-  <section class="lnd-intro">
-    <div class="lnd-intro-inner">
-      <h2 class="lnd-intro-heading">Introduction</h2>
-      <p>Introductory copy to come.</p>
+  <!-- ============================ ABOUT ME ============================ -->
+  <section id="about" class="lnd-about">
+    <div class="lnd-about-inner">
+      <!-- Illustration: abstract circles and lines -->
+      <div class="img-placeholder lnd-art lnd-about-art">
+        <img src="" alt="" />
+      </div>
+      <div class="lnd-about-text">
+        <h2 class="lnd-heading">About me</h2>
+        <p>
+          I’m Nicola, an experienced BABCP-accredited psychological therapist, specialising in
+          individual CBT and couples therapy. I trained at Tavistock Relate, using an integrative
+          approach.
+        </p>
+        <p>
+          After 23 years in the NHS, I developed a private practice because I genuinely enjoy
+          working with people. Before becoming a therapist, I trained as a neurological specialist
+          speech and language therapist, and have extensive experience supporting people with a
+          wide range of psychological and health-related difficulties.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ MY APPROACH ============================ -->
+  <section class="lnd-approach">
+    <div class="lnd-approach-inner">
+      <div class="lnd-approach-text">
+        <h2 class="lnd-heading">My approach</h2>
+        <p>
+          I’m particularly interested in how emotional difficulties and relationship patterns
+          interact. Using CBT, we explore the patterns that may be causing difficulties now, while
+          also understanding where they came from. Together, we can try new ways of relating to
+          yourself, others and the world — with greater kindness, confidence and flexibility.
+        </p>
+      </div>
+      <ul class="lnd-approach-list">
+        @for (step of approachSteps; track step) {
+          <li class="lnd-approach-item">
+            <!-- Illustration: circular icon for this step -->
+            <div class="img-placeholder lnd-approach-icon">
+              <img src="" alt="" />
+            </div>
+            <span class="lnd-approach-label">{{ step }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== THERAPY WITH ME / MY STYLE ===================== -->
+  <section id="therapy" class="lnd-therapy">
+    <div class="lnd-therapy-inner">
+      <!-- Illustration: abstract circles and lines (tall) -->
+      <div class="img-placeholder lnd-art lnd-therapy-art">
+        <img src="" alt="" />
+      </div>
+      <div class="lnd-therapy-col">
+        <h2 class="lnd-subheading">Therapy with me</h2>
+        <ul class="lnd-therapy-list">
+          @for (point of therapyPoints; track point) {
+            <li>{{ point }}</li>
+          }
+        </ul>
+      </div>
+      <div class="lnd-therapy-col lnd-style">
+        <h2 class="lnd-subheading">My style</h2>
+        <p>
+          I’m warm, curious and down-to-earth, and use humour when it feels appropriate. I take my
+          work seriously, but I don’t believe therapy needs to feel overly formal or clinical. I
+          bring considerable experience and knowledge, while remaining curious about each person
+          and their circumstances.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CALL TO ACTION ============================ -->
+  <section class="lnd-cta on-dark">
+    <div class="lnd-cta-inner">
+      <div class="lnd-cta-text">
+        <h2 class="lnd-cta-heading">
+          A space to feel understood, think differently and explore change.
+        </h2>
+        <p class="lnd-cta-lead">Get in touch to find out how I can help.</p>
+        <a class="btn btn-outline-light" routerLink="/" fragment="enquiry"
+          >Contact me <span class="btn-icon" aria-hidden="true">→</span></a
+        >
+      </div>
+      <!-- Illustration: abstract circles and lines (small) -->
+      <div class="img-placeholder lnd-art lnd-cta-art">
+        <img src="" alt="" />
+      </div>
     </div>
   </section>
 </main>

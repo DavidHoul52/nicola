@@ -4,6 +4,15 @@ Shared conventions for all client websites live in the parent file and apply her
 
 @../CLAUDE.md
 
+## Design overrides (from the client's homepage mockup)
+
+These replace the shared palette, type and button rules in `../CLAUDE.md` for this site only:
+
+- **Colours:** `--navy` (headings, primary buttons, links), `--ink-soft` (body text), `--cream` / `--cream-light` (light sections), `--mist` (pale blue band), `--slate` / `--slate-dark` (dark band, footer). `--accent` (red) and `--dot` (blue) are decorative only — `--accent` fails AA for body text. There is no sage or terracotta on this site.
+- **Type:** `--font-heading` / `--font-body` are an Optima system stack — no web fonts.
+- **Buttons:** pill-shaped (`border-radius: 999px`). Variants: `.btn-primary` (solid navy), `.btn-outline` (navy outline on light), `.btn-outline-light` (white outline on dark bands). Calls to action use an outline button with an `aria-hidden` → arrow.
+- **Illustrations** are abstract decorative art, so their placeholder `<img>` takes `alt=""`, with an HTML comment describing the intended artwork. Photos and meaningful images still follow the shared rule (description in `alt`).
+
 ## Project-specific notes
 
 - Client details (name, domain, email, phone, address) and the Web3Forms key live in `src/app/site.ts` — read them from there, never hard-code them in templates.

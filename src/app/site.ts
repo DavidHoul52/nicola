@@ -8,8 +8,10 @@
 export const SITE = {
   /** Practitioner's name as shown in the header, footer and page titles. */
   name: 'Nicola',
-  /** Credentials line shown under the name in the footer, e.g. 'MBACP'. Empty hides it. */
-  credentials: '',
+  /** Shown under the name in the header wordmark. */
+  tagline: 'Psychological Therapist',
+  /** Credentials line shown under the name in the footer. Empty hides it. */
+  credentials: 'BABCP-accredited psychological therapist',
   /** Live site origin, no trailing slash. Used to build canonical links. */
   origin: 'https://example.com',
   email: 'hello@example.com',

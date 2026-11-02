@@ -1,51 +1,236 @@
-/* Homepage — page-specific layout.
+/* Homepage — page-specific layout, from the client's mockup.
    Uses the global brand tokens and .btn classes from src/styles.css.
    Only page-specific rules live here, namespaced with the `lnd-` prefix. */
 
+/* Shared by every section. */
+.lnd-heading {
+  font-size: var(--h2-section);
+  margin-bottom: 1.25rem;
+}
+.lnd-subheading {
+  font-size: var(--h2-card);
+  margin-bottom: 1.25rem;
+}
+/* Illustrations are square unless a section says otherwise. */
+.lnd-art {
+  aspect-ratio: 1;
+  width: 100%;
+}
+
 /* ============================ HERO ============================ */
-/* Image and text share one grid cell so the text sits over the image. */
 .lnd-hero {
+  background: var(--cream);
+  padding: clamp(2.5rem, 6vw, 5rem) 1.5rem clamp(3rem, 7vw, 5.5rem);
+}
+.lnd-hero-inner {
+  max-width: var(--container);
+  margin: 0 auto;
   display: grid;
-  min-height: clamp(26rem, 70vh, 44rem);
-}
-.lnd-hero-bg,
-.lnd-hero-content {
-  grid-area: 1 / 1;
-}
-.lnd-hero-content {
-  /* .img-placeholder is position: relative, and positioned boxes paint above
-     static ones, so the panel must be positioned too to sit on top. */
-  position: relative;
-  align-self: center;
-  justify-self: center;
-  max-width: 48rem;
-  margin: 1.5rem;
-  padding: clamp(1.5rem, 4vw, 3rem);
-  /* A solid panel rather than text straight on the photo, so contrast holds
-     whatever image goes in. */
-  background: rgba(255, 255, 255, 0.9);
-  text-align: center;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
 }
 .lnd-hero-title {
   font-size: var(--h1-hero);
-  margin-bottom: 1rem;
+  max-width: 18ch;
+  margin-bottom: 1.5rem;
 }
 .lnd-hero-subtitle {
-  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
-  color: var(--ink-soft);
-  margin-bottom: 1.75rem;
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  max-width: 30ch;
+  margin-bottom: 2rem;
+}
+.lnd-hero-art {
+  max-width: 340px;
+  justify-self: center;
 }
 
-/* ============================ INTRO ============================ */
-.lnd-intro {
+/* ============================ ABOUT ME ============================ */
+.lnd-about {
+  background: var(--cream-light);
   padding: var(--section-pad) 1.5rem;
 }
-.lnd-intro-inner {
-  max-width: 760px;
+.lnd-about-inner {
+  max-width: var(--container);
   margin: 0 auto;
-  font-size: 1.1rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
 }
-.lnd-intro-heading {
-  font-size: var(--h2-section);
+.lnd-about-art {
+  max-width: 260px;
+  justify-self: center;
+}
+.lnd-about-text {
+  max-width: 62ch;
+}
+
+/* ============================ MY APPROACH ============================ */
+.lnd-approach {
+  background: var(--mist);
+  padding: var(--section-pad) 1.5rem;
+}
+.lnd-approach-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+.lnd-approach-text {
+  max-width: 56ch;
+}
+.lnd-approach-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+  gap: 1.5rem 1rem;
+}
+.lnd-approach-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  min-width: 0;
+}
+/* Circular, as in the mockup. */
+.lnd-approach-icon {
+  width: 6rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.lnd-approach-label {
+  font-size: 1rem;
+  line-height: 1.4;
+  max-width: 13ch;
+}
+
+/* ===================== THERAPY WITH ME / MY STYLE ===================== */
+.lnd-therapy {
+  background: var(--cream-light);
+  padding: var(--section-pad) 1.5rem;
+}
+.lnd-therapy-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.8fr 1.7fr 1.3fr;
+  align-items: start;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+.lnd-therapy-art {
+  aspect-ratio: 3 / 4;
+  max-width: 220px;
+  justify-self: center;
+  align-self: center;
+}
+.lnd-therapy-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+/* Round blue markers, as in the mockup. */
+.lnd-therapy-list li {
+  position: relative;
+  padding-left: 2rem;
+}
+.lnd-therapy-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: var(--dot);
+}
+/* The thin rule between the two text columns. */
+.lnd-style {
+  border-left: 1px solid rgba(35, 54, 79, 0.3);
+  padding-left: clamp(2rem, 4vw, 3.5rem);
+}
+
+/* ============================ CALL TO ACTION ============================ */
+.lnd-cta {
+  background: var(--slate);
+  color: var(--on-dark);
+  padding: clamp(3rem, 6vw, 4.5rem) 1.5rem;
+}
+.lnd-cta-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2rem;
+}
+.lnd-cta-heading {
+  color: var(--on-dark);
+  font-size: var(--h2-card);
+  max-width: 30ch;
+  margin-bottom: 0.75rem;
+}
+.lnd-cta-lead {
+  color: var(--on-dark-soft);
   margin-bottom: 1.5rem;
+}
+.lnd-cta-art {
+  width: 160px;
+}
+
+/* ============================ RESPONSIVE ============================ */
+@media (max-width: 960px) {
+  .lnd-hero-inner,
+  .lnd-about-inner,
+  .lnd-approach-inner {
+    grid-template-columns: 1fr;
+  }
+  .lnd-hero-art {
+    max-width: 260px;
+  }
+  .lnd-about-art {
+    max-width: 200px;
+  }
+
+  /* Illustration beside "Therapy with me"; "My style" drops below both. */
+  .lnd-therapy-inner {
+    grid-template-columns: 0.6fr 1.4fr;
+  }
+  .lnd-style {
+    grid-column: 1 / -1;
+    border-left: none;
+    border-top: 1px solid rgba(35, 54, 79, 0.3);
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+
+  .lnd-cta-art {
+    width: 120px;
+  }
+}
+
+@media (max-width: 600px) {
+  .lnd-approach-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .lnd-therapy-inner {
+    grid-template-columns: 1fr;
+  }
+  .lnd-therapy-art {
+    max-width: 160px;
+  }
+  .lnd-cta-inner {
+    grid-template-columns: 1fr;
+  }
+  .lnd-cta-art {
+    display: none;
+  }
 }

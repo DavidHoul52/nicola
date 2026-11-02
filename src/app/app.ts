@@ -1,7 +1,14 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
+import {
+  IsActiveMatchOptions,
+  NavigationEnd,
+  Router,
+  RouterLink,
+  RouterLinkActive,
+  RouterOutlet,
+} from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Enquiry } from './enquiry/enquiry';
 import { gtagPageView } from './analytics';
@@ -15,8 +22,9 @@ interface SeoEntry {
 
 const HOME_SEO: SeoEntry = {
   canonical: `${SITE.origin}/`,
-  title: `${SITE.name} | Counselling`,
-  description: `Counselling with ${SITE.name}.`,
+  title: `${SITE.name} | ${SITE.tagline} — Individual & Couples CBT`,
+  description:
+    'Individual and couples CBT therapy in a supportive, non-judgemental space, with a BABCP-accredited psychological therapist.',
 };
 
 /** Per-route SEO metadata (title, description, canonical). Add an entry for every new page. */
@@ -40,7 +48,7 @@ interface NavLink {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterLink, RouterOutlet, Enquiry],
+  imports: [RouterLink, RouterLinkActive, RouterOutlet, Enquiry],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -93,7 +101,27 @@ export class App {
     link.setAttribute('href', entry.canonical);
   }
 
-  protected readonly navLinks: NavLink[] = [{ label: 'Home', link: '/' }];
+  /**
+   * About and Therapy are sections of the homepage for now; point them at their
+   * own routes once those pages exist. (The mockup's FAQs link waits for an FAQ page.)
+   */
+  protected readonly navLinks: NavLink[] = [
+    { label: 'Home', link: '/' },
+    { label: 'About', link: '/', fragment: 'about' },
+    { label: 'Therapy', link: '/', fragment: 'therapy' },
+    { label: 'Contact', link: '/', fragment: 'enquiry' },
+  ];
+
+  /**
+   * Fragment must match exactly so only one homepage link is underlined at a
+   * time: Home with no fragment, About on #about, and so on.
+   */
+  protected readonly navActiveOptions: IsActiveMatchOptions = {
+    paths: 'exact',
+    queryParams: 'ignored',
+    fragment: 'exact',
+    matrixParams: 'ignored',
+  };
 
   protected toggleMenu(): void {
     this.menuOpen.update((open) => !open);

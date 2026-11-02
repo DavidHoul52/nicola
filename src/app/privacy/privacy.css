@@ -1,7 +1,7 @@
 .privacy {
   display: block;
-  background: var(--light-gray);
-  color: var(--ink);
+  background: var(--cream-light);
+  color: var(--ink-soft);
   min-height: 100vh;
   padding: clamp(2.5rem, 6vw, 5rem) 1.5rem;
 }
@@ -13,7 +13,7 @@
 }
 
 .privacy-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: var(--h1-text);
   margin: 0 0 0.5rem;
 }
@@ -29,7 +29,7 @@
 }
 
 .privacy h2 {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: var(--h2-card);
   margin: 2.5rem 0 0.75rem;
 }
@@ -53,7 +53,7 @@
 }
 
 .privacy a {
-  color: var(--terracotta);
+  color: var(--navy);
   text-decoration: underline;
   text-underline-offset: 3px;
   word-break: break-word;

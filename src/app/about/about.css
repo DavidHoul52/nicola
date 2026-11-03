@@ -1,0 +1,27 @@
+/* About page — page-specific layout.
+   Uses the global brand tokens, .btn classes and page layout from src/styles.css.
+   Only page-specific rules live here, namespaced with the `abt-` prefix. */
+
+/* Photo beside the introduction. */
+.abt-intro {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+/* The photo's own proportions, so nothing is cropped. */
+.abt-photo {
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 1833 / 2048;
+  justify-self: center;
+}
+
+@media (max-width: 960px) {
+  .abt-intro {
+    grid-template-columns: 1fr;
+  }
+  .abt-photo {
+    max-width: 340px;
+  }
+}

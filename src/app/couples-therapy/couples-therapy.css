@@ -1,0 +1,21 @@
+/* Couples therapy page — page-specific layout.
+   Uses the global brand tokens, .btn classes and page layout from src/styles.css.
+   Only page-specific rules live here, namespaced with the `cpl-` prefix. */
+
+/* Introduction beside the list of reasons. */
+.cpl-intro {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+.cpl-reasons-heading {
+  font-size: var(--h2-card);
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 960px) {
+  .cpl-intro {
+    grid-template-columns: 1fr;
+  }
+}

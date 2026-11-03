@@ -31,6 +31,40 @@ const HOME_SEO: SeoEntry = {
 const SEO_BY_PATH: Record<string, SeoEntry> = {
   '/': HOME_SEO,
   '/enquiry-received': HOME_SEO,
+  '/about': {
+    canonical: `${SITE.origin}/about`,
+    title: `About | ${SITE.name}, ${SITE.tagline}`,
+    description:
+      'BABCP-accredited psychological therapist with 23 years in the NHS, trained in couples therapy at Tavistock Relate.',
+  },
+  '/how-i-can-help': {
+    canonical: `${SITE.origin}/how-i-can-help`,
+    title: `How I Can Help | ${SITE.name}`,
+    description:
+      'CBT for anxiety, low mood, relationship and health-related difficulties — time-limited therapy focused on building your own skills.',
+  },
+  '/couples-therapy': {
+    canonical: `${SITE.origin}/couples-therapy`,
+    title: `Couples Therapy | ${SITE.name}`,
+    description:
+      'Couples therapy with a Tavistock Relate-trained therapist: a space for both of you to be heard and find new ways of relating.',
+  },
+  '/fees': {
+    canonical: `${SITE.origin}/fees`,
+    title: `Fees and Practicalities | ${SITE.name}`,
+    description: `Session fees, location, payment, cancellations and confidentiality for therapy with ${SITE.name}.`,
+  },
+  '/faqs': {
+    canonical: `${SITE.origin}/faqs`,
+    title: `FAQs | ${SITE.name}`,
+    description:
+      'Answers to common questions about CBT, couples therapy, session numbers, confidentiality and getting started.',
+  },
+  '/contact': {
+    canonical: `${SITE.origin}/contact`,
+    title: `Contact | ${SITE.name}`,
+    description: `Get in touch with ${SITE.name} to find out whether individual or couples therapy could help.`,
+  },
   '/privacy': {
     canonical: `${SITE.origin}/privacy`,
     title: `Privacy Notice | ${SITE.name}`,
@@ -42,8 +76,6 @@ interface NavLink {
   label: string;
   /** Router path. */
   link: string;
-  /** Optional in-page anchor scrolled to after navigation. */
-  fragment?: string;
 }
 
 @Component({
@@ -101,25 +133,25 @@ export class App {
     link.setAttribute('href', entry.canonical);
   }
 
-  /**
-   * About and Therapy are sections of the homepage for now; point them at their
-   * own routes once those pages exist. (The mockup's FAQs link waits for an FAQ page.)
-   */
+  /** Header navigation, in display order. Each page also needs a route and an SEO_BY_PATH entry. */
   protected readonly navLinks: NavLink[] = [
     { label: 'Home', link: '/' },
-    { label: 'About', link: '/', fragment: 'about' },
-    { label: 'Therapy', link: '/', fragment: 'therapy' },
-    { label: 'Contact', link: '/', fragment: 'enquiry' },
+    { label: 'About', link: '/about' },
+    { label: 'How I can help', link: '/how-i-can-help' },
+    { label: 'Couples therapy', link: '/couples-therapy' },
+    { label: 'Fees and practicalities', link: '/fees' },
+    { label: 'FAQs', link: '/faqs' },
+    { label: 'Contact', link: '/contact' },
   ];
 
   /**
-   * Fragment must match exactly so only one homepage link is underlined at a
-   * time: Home with no fragment, About on #about, and so on.
+   * Exact paths so Home isn't underlined on every page. Fragments are ignored,
+   * so a page stays marked when a "Get in touch" link jumps to #enquiry on it.
    */
   protected readonly navActiveOptions: IsActiveMatchOptions = {
     paths: 'exact',
     queryParams: 'ignored',
-    fragment: 'exact',
+    fragment: 'ignored',
     matrixParams: 'ignored',
   };
 

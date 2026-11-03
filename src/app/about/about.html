@@ -1,0 +1,68 @@
+<main>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div>
+        <h1 class="page-title">About me</h1>
+        <p class="page-lead">
+          An experienced psychological therapist offering individual CBT and couples therapy.
+        </p>
+      </div>
+      <!-- Illustration: abstract circles and lines -->
+      <div class="img-placeholder page-hero-art">
+        <img src="images/composition-transparent.png" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="page-section-inner abt-intro">
+      <!-- Photo of Nicola — meaningful, so it carries alt text -->
+      <div class="img-placeholder abt-photo">
+        <img src="images/nicola-orig-1.jpg" alt="Nicola smiling, standing in front of a large tree in a sunlit park" />
+      </div>
+      <div class="prose">
+        <h2>Hello, I’m Nicola</h2>
+        <p>
+          I’m an experienced BABCP-accredited psychological therapist, specialising in individual
+          CBT and couples therapy. I trained at Tavistock Relate, using an integrative approach.
+        </p>
+        <p>
+          After 23 years in the NHS, I developed a private practice because I genuinely enjoy
+          working with people. Before becoming a therapist, I trained as a neurological specialist
+          speech and language therapist, and have extensive experience supporting people with a
+          wide range of psychological and health-related difficulties.
+        </p>
+
+        <h2>Background and training</h2>
+        <ul class="dot-list">
+          @for (item of background; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt">
+    <div class="page-section-inner prose">
+      <h2>My approach</h2>
+      <p>
+        I’m particularly interested in how emotional difficulties and relationship patterns
+        interact. Using CBT, we explore the patterns that may be causing difficulties now, while
+        also understanding where they came from. Together, we can try new ways of relating to
+        yourself, others and the world — with greater kindness, confidence and flexibility.
+      </p>
+
+      <h2>My style</h2>
+      <p>
+        I’m warm, curious and down-to-earth, and use humour when it feels appropriate. I take my
+        work seriously, but I don’t believe therapy needs to feel overly formal or clinical. I bring
+        considerable experience and knowledge, while remaining curious about each person and their
+        circumstances.
+      </p>
+      <a class="btn btn-outline" routerLink="/how-i-can-help"
+        >How I can help <span class="btn-icon" aria-hidden="true">→</span></a
+      >
+    </div>
+  </section>
+</main>

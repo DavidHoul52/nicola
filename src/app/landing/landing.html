@@ -38,6 +38,9 @@
           speech and language therapist, and have extensive experience supporting people with a
           wide range of psychological and health-related difficulties.
         </p>
+        <a class="btn btn-outline" routerLink="/about"
+          >More about me <span class="btn-icon" aria-hidden="true">→</span></a
+        >
       </div>
     </div>
   </section>
@@ -96,11 +99,14 @@
       </div>
       <div class="lnd-therapy-col">
         <h2 class="lnd-subheading">Therapy with me</h2>
-        <ul class="lnd-therapy-list">
+        <ul class="dot-list">
           @for (point of therapyPoints; track point) {
             <li>{{ point }}</li>
           }
         </ul>
+        <a class="btn btn-outline" routerLink="/how-i-can-help"
+          >How I can help <span class="btn-icon" aria-hidden="true">→</span></a
+        >
       </div>
       <div class="lnd-therapy-col lnd-style">
         <h2 class="lnd-subheading">My style</h2>

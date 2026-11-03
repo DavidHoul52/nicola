@@ -1,0 +1,71 @@
+<main>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div>
+        <h1 class="page-title">How I can help</h1>
+        <p class="page-lead">
+          CBT for emotional, relationship and health-related difficulties — focused on
+          understanding what keeps you stuck, and building the skills to change it.
+        </p>
+      </div>
+      <!-- Illustration: abstract circles and lines (tall) -->
+      <div class="img-placeholder page-hero-art">
+        <img src="images/composition-2-transparent.png" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="page-section-inner hch-intro">
+      <div class="prose">
+        <h2>What is CBT?</h2>
+        <p>
+          Cognitive behavioural therapy (CBT) is a practical, collaborative therapy. It looks at how
+          our thoughts, feelings, body and behaviour affect one another, and how patterns that once
+          made sense can keep difficulties going now.
+        </p>
+        <p>
+          Alongside what is happening in the present, we also make sense of where those patterns
+          came from. Then, together, we try out new ways of relating to yourself, others and the
+          world.
+        </p>
+      </div>
+      <div class="hch-difficulties">
+        <h2 class="hch-difficulties-heading">Things people come to me with</h2>
+        <ul class="dot-list">
+          @for (item of difficulties; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt">
+    <div class="page-section-inner">
+      <h2 class="hch-heading">How therapy works</h2>
+      <ol class="hch-steps">
+        @for (step of steps; track step.title) {
+          <li class="hch-step">
+            <h3 class="hch-step-title">{{ step.title }}</h3>
+            <p>{{ step.text }}</p>
+          </li>
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="page-section-inner prose">
+      <h2>Individual or couples therapy</h2>
+      <p>
+        I work with individuals and with couples. If the difficulties you’re facing are
+        centred on your relationship, couples therapy gives you both space to be heard and to
+        understand the patterns between you.
+      </p>
+      <a class="btn btn-outline" routerLink="/couples-therapy"
+        >About couples therapy <span class="btn-icon" aria-hidden="true">→</span></a
+      >
+    </div>
+  </section>
+</main>

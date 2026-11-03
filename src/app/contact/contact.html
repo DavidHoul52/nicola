@@ -1,0 +1,65 @@
+<main>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div>
+        <h1 class="page-title">Contact</h1>
+        <p class="page-lead">
+          If you’d like to find out whether therapy with me could help, I’d be glad to hear from
+          you.
+        </p>
+      </div>
+      <!-- Illustration: abstract circles and lines (tall) -->
+      <div class="img-placeholder page-hero-art">
+        <img src="images/composition-2-transparent.png" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="page-section-inner con-grid">
+      <div class="prose">
+        <h2>Get in touch</h2>
+        <p>
+          Email me, or use the <a routerLink="/contact" fragment="enquiry">enquiry form</a> below.
+        </p>
+        <dl class="con-details">
+          <dt>Email</dt>
+          <dd><a [href]="'mailto:' + site.email">{{ site.email }}</a></dd>
+          @if (site.phone) {
+            <dt>Phone</dt>
+            <dd>{{ site.phone }}</dd>
+          }
+          @if (site.address.length) {
+            <dt>Address</dt>
+            <dd>
+              @for (line of site.address; track $index) {
+                {{ line }}<br />
+              }
+            </dd>
+          }
+        </dl>
+      </div>
+
+      <div class="prose">
+        <h2>What happens next</h2>
+        <ol class="con-steps">
+          @for (step of nextSteps; track $index) {
+            <li>{{ step }}</li>
+          }
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt">
+    <div class="page-section-inner prose">
+      <h2>If you need urgent help</h2>
+      <p>
+        I’m not able to offer an emergency service, and may not see messages straight away. If you
+        are in crisis or your life is at risk, call <strong>999</strong> or go to A&amp;E. For
+        urgent help that isn’t an emergency, call <strong>NHS 111</strong>. Samaritans are
+        available day and night, free, on <strong>116 123</strong>.
+      </p>
+    </div>
+  </section>
+</main>

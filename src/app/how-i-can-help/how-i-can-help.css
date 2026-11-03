@@ -1,0 +1,58 @@
+/* How I can help page — page-specific layout.
+   Uses the global brand tokens, .btn classes and page layout from src/styles.css.
+   Only page-specific rules live here, namespaced with the `hch-` prefix. */
+
+/* "What is CBT?" beside the list of difficulties. */
+.hch-intro {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+.hch-difficulties-heading {
+  font-size: var(--h2-card);
+  margin-bottom: 1.25rem;
+}
+
+.hch-heading {
+  font-size: var(--h2-sub);
+  margin-bottom: 2rem;
+}
+/* Numbered steps, side by side on wide screens. */
+.hch-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 2rem clamp(1.5rem, 3vw, 2.5rem);
+  counter-reset: step;
+}
+.hch-step {
+  counter-increment: step;
+  min-width: 0;
+  border-top: 1px solid rgba(35, 54, 79, 0.3);
+  padding-top: 1.25rem;
+}
+.hch-step::before {
+  content: counter(step);
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+.hch-step-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.6rem;
+}
+.hch-step p {
+  margin: 0;
+}
+
+@media (max-width: 960px) {
+  .hch-intro {
+    grid-template-columns: 1fr;
+  }
+}

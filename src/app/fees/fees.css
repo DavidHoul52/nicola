@@ -1,0 +1,64 @@
+/* Fees and practicalities page — page-specific layout.
+   Uses the global brand tokens, .btn classes and page layout from src/styles.css.
+   Only page-specific rules live here, namespaced with the `fees-` prefix. */
+
+.fees-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.fees-table th,
+.fees-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 1rem 1rem 1rem 0;
+  border-bottom: 1px solid rgba(35, 54, 79, 0.2);
+  overflow-wrap: anywhere;
+}
+.fees-table thead th {
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom-color: rgba(35, 54, 79, 0.45);
+}
+/* Session column gets the most room. */
+.fees-table th:first-child {
+  width: 45%;
+}
+.fees-table tbody th {
+  font-weight: 500;
+  color: var(--navy);
+}
+
+/* Practicalities: two columns of short sections. */
+.fees-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem clamp(2rem, 5vw, 4rem);
+}
+.fees-item {
+  min-width: 0;
+  max-width: 56ch;
+}
+.fees-item-heading {
+  font-size: var(--h2-card);
+  margin-bottom: 0.75rem;
+}
+.fees-item p {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .fees-grid {
+    grid-template-columns: 1fr;
+  }
+  .fees-table th,
+  .fees-table td {
+    padding-right: 0.6rem;
+    font-size: 0.95rem;
+  }
+  .fees-table th:first-child {
+    width: 40%;
+  }
+}

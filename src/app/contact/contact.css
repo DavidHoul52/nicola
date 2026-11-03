@@ -1,0 +1,59 @@
+/* Contact page — page-specific layout.
+   Uses the global brand tokens, .btn classes and page layout from src/styles.css.
+   Only page-specific rules live here, namespaced with the `con-` prefix. */
+
+/* Contact details beside "What happens next". */
+.con-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.con-details {
+  margin: 1.5rem 0 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem 1.5rem;
+}
+.con-details dt {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding-top: 0.2rem;
+}
+.con-details dd {
+  margin: 0;
+  min-width: 0;
+}
+
+/* Numbered steps with navy numerals. */
+.con-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  counter-reset: step;
+}
+.con-steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 2.25rem;
+}
+.con-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: -0.1em;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--navy);
+}
+
+@media (max-width: 960px) {
+  .con-grid {
+    grid-template-columns: 1fr;
+  }
+}

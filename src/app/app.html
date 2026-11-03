@@ -21,7 +21,6 @@
       @for (link of navLinks; track link.label) {
         <a
           [routerLink]="link.link"
-          [fragment]="link.fragment"
           routerLinkActive="active"
           [routerLinkActiveOptions]="navActiveOptions"
           ariaCurrentWhenActive="page"
@@ -76,10 +75,9 @@
     <div class="footer-links">
       <p class="footer-section-label">Quick Links</p>
       <nav class="footer-nav" aria-label="Footer">
-        <a routerLink="/">Home</a>
-        <a routerLink="/" fragment="about">About me</a>
-        <a routerLink="/" fragment="therapy">Therapy with me</a>
-        <a routerLink="/" fragment="enquiry">Get in touch</a>
+        @for (link of navLinks; track link.label) {
+          <a [routerLink]="link.link">{{ link.label }}</a>
+        }
       </nav>
     </div>
   </div>

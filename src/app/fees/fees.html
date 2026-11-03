@@ -1,0 +1,88 @@
+<main>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div>
+        <h1 class="page-title">Fees and practicalities</h1>
+        <p class="page-lead">What sessions cost, where they take place, and how therapy is arranged.</p>
+      </div>
+      <!-- Illustration: abstract circles and lines (tall) -->
+      <div class="img-placeholder page-hero-art">
+        <img src="images/composition-2-transparent.png" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="page-section-inner prose">
+      <h2>Fees</h2>
+      <table class="fees-table">
+        <caption class="sr-only">Session fees</caption>
+        <thead>
+          <tr>
+            <th scope="col">Session</th>
+            <th scope="col">Length</th>
+            <th scope="col">Fee</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (fee of fees; track fee.service) {
+            <tr>
+              <th scope="row">{{ fee.service }}</th>
+              <td>{{ fee.length }}</td>
+              <td>{{ fee.price }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TODO(client): confirm each practicality below. -->
+  <section class="page-section page-section-alt">
+    <div class="page-section-inner fees-grid">
+      <div class="fees-item">
+        <h2 class="fees-item-heading">Where sessions take place</h2>
+        <p>Details of in-person and online sessions to be confirmed.</p>
+      </div>
+      <div class="fees-item">
+        <h2 class="fees-item-heading">How often we meet</h2>
+        <p>
+          Sessions are usually weekly. Therapy is time-limited — typically up to 20 weeks — with
+          the option of a consolidation period of less frequent sessions towards the end.
+        </p>
+      </div>
+      <div class="fees-item">
+        <h2 class="fees-item-heading">Payment</h2>
+        <p>Payment methods and timing to be confirmed.</p>
+      </div>
+      <div class="fees-item">
+        <h2 class="fees-item-heading">Cancellations</h2>
+        <p>Cancellation notice period and policy to be confirmed.</p>
+      </div>
+      <div class="fees-item">
+        <h2 class="fees-item-heading">Health insurance</h2>
+        <p>Details of any insurers I am registered with to be confirmed.</p>
+      </div>
+      <div class="fees-item">
+        <h2 class="fees-item-heading">Confidentiality</h2>
+        <p>
+          What you share in therapy stays confidential. The rare exceptions — such as a serious
+          risk to you or someone else — are explained in our first session.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="page-section-inner prose">
+      <h2>Any other questions?</h2>
+      <p>
+        You may find the answer in the <a routerLink="/faqs">frequently asked questions</a>, or you
+        are welcome to ask me directly.
+      </p>
+      <a class="btn btn-outline" routerLink="/contact"
+        >Get in touch <span class="btn-icon" aria-hidden="true">→</span></a
+      >
+    </div>
+  </section>
+</main>

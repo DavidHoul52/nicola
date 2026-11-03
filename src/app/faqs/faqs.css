@@ -1,0 +1,47 @@
+/* FAQs page — page-specific layout.
+   Uses the global brand tokens, .btn classes and page layout from src/styles.css.
+   Only page-specific rules live here, namespaced with the `faq-` prefix. */
+
+.faq-list {
+  border-top: 1px solid rgba(35, 54, 79, 0.3);
+}
+.faq-item {
+  border-bottom: 1px solid rgba(35, 54, 79, 0.3);
+}
+
+/* The question is the disclosure's button: full width, with a +/− marker. */
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  line-height: 1.35;
+  color: var(--navy);
+  cursor: pointer;
+  list-style: none;
+}
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+.faq-question::after {
+  content: '+';
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.faq-item[open] .faq-question::after {
+  content: '−';
+}
+.faq-question:hover {
+  color: var(--navy-hover);
+}
+
+.faq-answer {
+  padding-bottom: 1.25rem;
+}
+.faq-answer p:last-child {
+  margin-bottom: 0;
+}

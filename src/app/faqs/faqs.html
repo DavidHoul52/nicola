@@ -1,0 +1,45 @@
+<main>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div>
+        <h1 class="page-title">FAQs</h1>
+        <p class="page-lead">Answers to the questions people most often ask before starting therapy.</p>
+      </div>
+      <!-- Illustration: abstract circles and lines -->
+      <div class="img-placeholder page-hero-art">
+        <img src="images/composition-transparent.png" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="page-section-inner prose">
+      <h2 class="sr-only">Frequently asked questions</h2>
+      <div class="faq-list">
+        @for (faq of faqs; track faq.question) {
+          <details class="faq-item">
+            <summary class="faq-question">{{ faq.question }}</summary>
+            <div class="faq-answer">
+              @for (paragraph of faq.answer; track $index) {
+                <p>{{ paragraph }}</p>
+              }
+              @if (faq.more) {
+                <p>
+                  <a [routerLink]="faq.more.link"
+                    >{{ faq.more.label }} <span aria-hidden="true">→</span></a
+                  >
+                </p>
+              }
+            </div>
+          </details>
+        }
+      </div>
+
+      <h2>Still have a question?</h2>
+      <p>I’m happy to answer anything not covered here.</p>
+      <a class="btn btn-outline" routerLink="/contact"
+        >Get in touch <span class="btn-icon" aria-hidden="true">→</span></a
+      >
+    </div>
+  </section>
+</main>

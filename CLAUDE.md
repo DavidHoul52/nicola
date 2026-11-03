@@ -19,6 +19,7 @@ These replace the shared palette, type and button rules in `../CLAUDE.md` for th
 - Page prefixes: `.lnd-` homepage, `.abt-` about, `.hch-` how I can help, `.cpl-` couples therapy, `.fees-` fees and practicalities, `.faq-` FAQs, `.con-` contact, `.nf-` 404, `.privacy` privacy notice.
 - Inner pages share the global page layout in `src/styles.css` — `.page-hero` (title band + decorative art), `.page-section` / `.page-section-alt`, `.prose` and `.dot-list`. Use these before adding page CSS.
 - Header and footer nav both render `navLinks` in `app.ts`.
+- Unlike the shared default, the app shell does **not** render the enquiry form: `<app-enquiry />` lives on the Contact page only (also served at `/enquiry-received`). "Get in touch" calls to action link to `/contact`.
 - Draft copy awaiting the client is marked `TODO(client)`; unknown fees and policies show "To be confirmed" rather than invented figures.
 - New pages also need an entry in `SEO_BY_PATH` (`src/app/app.ts`), or they prerender with no canonical.
 - Dev server runs on port 4401 (`npm start`).

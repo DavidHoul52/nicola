@@ -10,8 +10,8 @@ interface Step {
  * "How I can help" page, served at `/how-i-can-help`: what CBT is, the
  * difficulties Nicola works with, and how a course of therapy runs.
  *
- * TODO(client): the difficulties list is a draft — Nicola to confirm which she
- * wants to name.
+ * The difficulties list follows Nicola's notes; the last two entries come from
+ * her neurodiversity training and couples work rather than that list.
  */
 @Component({
   selector: 'app-how-i-can-help',
@@ -22,15 +22,13 @@ interface Step {
 export class HowICanHelp {
   /** "Things people come to me with" list. */
   protected readonly difficulties = [
-    'Anxiety and worry',
-    'Low mood and depression',
-    'Panic',
-    'Health anxiety',
-    'Low self-esteem and self-criticism',
-    'Stress and burnout',
-    'Adjusting to a health condition or diagnosis',
+    'Low self-worth',
+    'Depression',
+    'Post-traumatic stress disorder (PTSD)',
+    'Anxiety, including OCD, social anxiety, health anxiety, phobias, panic, generalised anxiety and body dysmorphia',
+    'Family estrangement',
+    'Neurodivergence, with therapy adapted to how you think and process information',
     'Relationship difficulties',
-    'Life changes and transitions',
   ];
 
   /** "How therapy works" — in order, rendered as a numbered list. */
@@ -45,11 +43,11 @@ export class HowICanHelp {
     },
     {
       title: 'Working together',
-      text: 'Therapy is time-limited — typically up to 20 weeks. We explore the patterns keeping difficulties going and practise new ways of responding, building your own skills and confidence.',
+      text: 'We explore the patterns keeping difficulties going and practise new ways of responding.',
     },
     {
-      title: 'Consolidation and returning',
-      text: 'Towards the end there is the option of a consolidation period with less frequent sessions, and the chance to return in future if you need to.',
+      title: 'Consolidation',
+      text: 'Sessions become less frequent as you put your skills into practice on your own.',
     },
   ];
 }

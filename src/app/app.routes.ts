@@ -19,9 +19,9 @@ export const routes: Routes = [
   { path: 'contact', component: Contact },
   { path: 'privacy', component: Privacy },
   // Post-enquiry confirmation URL used for conversion tracking (e.g. Google Ads).
-  // Renders the homepage (with its enquiry form) so a direct visit returns 200
-  // and shows the form, rather than falling through to the 404 below.
-  { path: 'enquiry-received', component: Landing },
+  // Renders the Contact page (with its enquiry form) so a direct visit returns
+  // 200 and shows the form, rather than falling through to the 404 below.
+  { path: 'enquiry-received', component: Contact },
   // Unknown URLs render the custom 404 (keeping the typed URL) rather than
   // silently redirecting to the homepage.
   { path: '**', component: NotFound },

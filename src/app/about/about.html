@@ -21,36 +21,43 @@
         <img src="images/nicola-orig-1.jpg" alt="Nicola smiling, standing in front of a large tree in a sunlit park" />
       </div>
       <div class="prose">
-        <h2>Hello, I’m Nicola</h2>
+        <h2>My Story</h2>
         <p>
-          I’m an experienced BABCP-accredited psychological therapist, specialising in individual
-          CBT and couples therapy. I trained at Tavistock Relate, using an integrative approach.
+          Before becoming a psychological therapist, I worked as a specialist neurological speech
+          and language therapist, supporting people living with long-term and life-changing
+          conditions. This gave me a particular understanding of how difficulties can affect the
+          whole person — including relationships, identity and our sense of what is possible.
         </p>
         <p>
-          After 23 years in the NHS, I developed a private practice because I genuinely enjoy
-          working with people. Before becoming a therapist, I trained as a neurological specialist
-          speech and language therapist, and have extensive experience supporting people with a
-          wide range of psychological and health-related difficulties.
+          My speech and language therapy background also taught me how to adapt to different
+          processing and learning styles. Having experienced therapy myself, I understand that it
+          can feel daunting, and I’ll do my best to help you feel at ease.
         </p>
-
-        <h2>Background and training</h2>
-        <ul class="dot-list">
-          @for (item of background; track item) {
-            <li>{{ item }}</li>
-          }
-        </ul>
-      </div>
+        <p>
+          I later completed additional NHS training in working with neurodiversity and long-term
+          health conditions.
+        </p>
+        <p>
+          In all, I spent 23 years working in the NHS before setting up my private practice, where
+          I continue to enjoy getting to know and working with each person I see.
+        </p>      </div>
     </div>
   </section>
 
   <section class="page-section page-section-alt">
     <div class="page-section-inner prose">
-      <h2>My approach</h2>
+      <!-- Linked from the homepage's "My approach" button (fragment "approach"). -->
+      <h2 id="approach">My approach</h2>
       <p>
-        I’m particularly interested in how emotional difficulties and relationship patterns
-        interact. Using CBT, we explore the patterns that may be causing difficulties now, while
-        also understanding where they came from. Together, we can try new ways of relating to
-        yourself, others and the world — with greater kindness, confidence and flexibility.
+        A particular interest of mine is the way our emotional lives and our relationships shape
+        each other. In CBT we look closely at the patterns that keep difficulties going in the
+        present, and make sense of how they first developed. From there, we work on new ways of
+        responding — to yourself, to the people around you and to life more broadly — so you can
+        meet things with more kindness, confidence and flexibility.
+      </p>
+      <p>
+        Depending on your needs, I may also draw on mindfulness, Compassion Focused Therapy (CFT)
+        and Acceptance and Commitment Therapy (ACT).
       </p>
 
       <h2>My style</h2>
@@ -63,6 +70,40 @@
       <a class="btn btn-outline" routerLink="/how-i-can-help"
         >How I can help <span class="btn-icon" aria-hidden="true">→</span></a
       >
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="page-section-inner prose">
+      <h2>Qualifications and experience</h2>
+      <p>
+        My core training is in Cognitive Behavioural Therapy, the approach I use with individuals.
+        To practise CBT, I completed a Postgraduate Diploma at the Charlie Waller Institute,
+        University of Reading.
+      </p>
+      <p>
+        I have additional <em>integrative</em> training in couples therapy — Couple Therapy for
+        Depression — which I obtained through Tavistock Relationships.
+      </p>
+      <p>
+        As a BABCP-accredited therapist, I have demonstrated and continue 
+        to uphold the professional standards required in CBT training, 
+        clinical experience, therapeutic practice, clinical supervision 
+        and ongoing professional development. 
+        This accreditation reflects my commitment to delivering safe, effective and
+        high-quality care to my clients.
+      </p>
+      <p>
+        I am also an approved Couple Therapy for Depression practitioner with Tavistock
+        Relationships.
+      </p>
+
+      <p>My qualifications and specialist training include:</p>
+      <ul class="dot-list">
+        @for (item of qualifications; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
     </div>
   </section>
 </main>

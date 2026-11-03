@@ -5,9 +5,9 @@ import { RouterLink } from '@angular/router';
  * Homepage, served at `/`, laid out from the client's mockup: hero, About me,
  * My approach, Therapy with me / My style, and a closing call to action.
  *
- * Static content only — the enquiry form and footer are rendered globally by
- * the app shell, so this component holds just its own <main> sections. The
- * calls to action scroll to that form via the `enquiry` fragment.
+ * Static content only — the header and footer are rendered by the app shell,
+ * so this component holds just its own <main> sections. The calls to action
+ * link to the Contact page, which holds the enquiry form.
  *
  * The illustrations are placeholders until the artwork is supplied. They are
  * decorative (abstract circles), so their alt text is deliberately empty.

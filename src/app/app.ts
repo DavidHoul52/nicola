@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, ViewportScroller } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import {
@@ -10,7 +10,6 @@ import {
   RouterOutlet,
 } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { Enquiry } from './enquiry/enquiry';
 import { gtagPageView } from './analytics';
 import { SITE } from './site';
 
@@ -27,15 +26,20 @@ const HOME_SEO: SeoEntry = {
     'Individual and couples CBT therapy in a supportive, non-judgemental space, with a BABCP-accredited psychological therapist.',
 };
 
+const CONTACT_SEO: SeoEntry = {
+  canonical: `${SITE.origin}/contact`,
+  title: `Contact | ${SITE.name}`,
+  description: `Get in touch with ${SITE.name} to find out whether individual or couples therapy could help.`,
+};
+
 /** Per-route SEO metadata (title, description, canonical). Add an entry for every new page. */
 const SEO_BY_PATH: Record<string, SeoEntry> = {
   '/': HOME_SEO,
-  '/enquiry-received': HOME_SEO,
   '/about': {
     canonical: `${SITE.origin}/about`,
     title: `About | ${SITE.name}, ${SITE.tagline}`,
     description:
-      'BABCP-accredited psychological therapist with 23 years in the NHS, trained in couples therapy at Tavistock Relate.',
+      'BABCP-accredited psychological therapist with 23 years in the NHS, trained in couples therapy at Tavistock Relationships.',
   },
   '/how-i-can-help': {
     canonical: `${SITE.origin}/how-i-can-help`,
@@ -47,7 +51,7 @@ const SEO_BY_PATH: Record<string, SeoEntry> = {
     canonical: `${SITE.origin}/couples-therapy`,
     title: `Couples Therapy | ${SITE.name}`,
     description:
-      'Couples therapy with a Tavistock Relate-trained therapist: a space for both of you to be heard and find new ways of relating.',
+      'Couples therapy with a Tavistock Relationships-trained therapist: a space for both of you to be heard and find new ways of relating.',
   },
   '/fees': {
     canonical: `${SITE.origin}/fees`,
@@ -60,11 +64,9 @@ const SEO_BY_PATH: Record<string, SeoEntry> = {
     description:
       'Answers to common questions about CBT, couples therapy, session numbers, confidentiality and getting started.',
   },
-  '/contact': {
-    canonical: `${SITE.origin}/contact`,
-    title: `Contact | ${SITE.name}`,
-    description: `Get in touch with ${SITE.name} to find out whether individual or couples therapy could help.`,
-  },
+  '/contact': CONTACT_SEO,
+  // Confirmation URL shows the Contact page, so it shares its canonical.
+  '/enquiry-received': CONTACT_SEO,
   '/privacy': {
     canonical: `${SITE.origin}/privacy`,
     title: `Privacy Notice | ${SITE.name}`,
@@ -80,7 +82,7 @@ interface NavLink {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterLink, RouterLinkActive, RouterOutlet, Enquiry],
+  imports: [RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -91,14 +93,22 @@ export class App {
   /** Mobile navigation toggle */
   protected readonly menuOpen = signal(false);
 
-  /** Header, enquiry form, and footer are hidden on standalone pages (e.g. /privacy). */
+  /** Header and footer are hidden on standalone pages (e.g. /privacy). */
   protected readonly showChrome = signal(true);
 
   private readonly document = inject(DOCUMENT);
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
 
-  constructor(router: Router) {
+  constructor(router: Router, viewportScroller: ViewportScroller) {
+    // Fragment links (e.g. /about#approach) would otherwise land under the
+    // sticky header: the router scrolls with window.scrollTo, which ignores CSS
+    // scroll-margin, so offset by the header's live height (0 when it's hidden).
+    viewportScroller.setOffset(() => [
+      0,
+      (this.document.querySelector<HTMLElement>('.site-header')?.offsetHeight ?? 0) + 16,
+    ]);
+
     router.events
       .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
       .subscribe((event) => {
@@ -146,7 +156,7 @@ export class App {
 
   /**
    * Exact paths so Home isn't underlined on every page. Fragments are ignored,
-   * so a page stays marked when a "Get in touch" link jumps to #enquiry on it.
+   * so Contact stays marked when its "enquiry form" link jumps to #enquiry.
    */
   protected readonly navActiveOptions: IsActiveMatchOptions = {
     paths: 'exact',

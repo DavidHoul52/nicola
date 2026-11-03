@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Enquiry } from '../enquiry/enquiry';
 import { SITE } from '../site';
 
 /**
- * Contact page, served at `/contact`: contact details, what happens after an
- * enquiry, and where to get urgent help.
- *
- * The enquiry form itself is not repeated here — the app shell renders it
- * directly below every page, so it follows this content.
+ * Contact page, served at `/contact` (and at `/enquiry-received` after a
+ * successful submission): contact details, what happens after an enquiry, the
+ * enquiry form — which appears on this page only — and where to get urgent help.
  */
 @Component({
   selector: 'app-contact',
-  imports: [RouterLink],
+  imports: [RouterLink, Enquiry],
   templateUrl: './contact.html',
   styleUrl: './contact.css',
 })

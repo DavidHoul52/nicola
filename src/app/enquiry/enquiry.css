@@ -1,5 +1,5 @@
 /* ============================================================
-   Getting started / enquiry — shown above the footer site-wide.
+   Getting started / enquiry — rendered on the Contact page only.
    Uses the global brand tokens from src/styles.css.
    ============================================================ */
 
@@ -27,8 +27,17 @@
   font-size: 1.4rem;
   margin-bottom: 1.5rem;
 }
+.enquiry-figure {
+  margin: 0;
+}
 .enquiry-img-1 {
   aspect-ratio: 16 / 11;
+}
+/* Artwork credit under the painting. */
+.enquiry-credit {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  font-style: italic;
 }
 .enquiry-form-heading {
   margin-bottom: 2rem;

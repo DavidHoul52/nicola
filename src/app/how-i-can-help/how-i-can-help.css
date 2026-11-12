@@ -2,16 +2,29 @@
    Uses the global brand tokens, .btn classes and page layout from src/styles.css.
    Only page-specific rules live here, namespaced with the `hch-` prefix. */
 
-/* "What is CBT?" beside the list of difficulties. */
-.hch-intro {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  align-items: start;
-  gap: clamp(2rem, 5vw, 4rem);
+/* Medium image placeholder at the foot of the right-hand column. 4:3 so it
+   holds its shape until the real image goes in. */
+.hch-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  /* Extra space on top of the aside's 1.5rem gap, to separate it from the box. */
+  margin-top: 13.5rem;
 }
-.hch-difficulties-heading {
-  font-size: var(--h2-card);
-  margin-bottom: 1.25rem;
+
+/* Navy h1, as on the other pages, rather than the linen-cream theme's teal
+   heading colour. Component scoping outranks the theme's heading rule. */
+.hch-title {
+  color: var(--navy);
+}
+
+/* The hero lead is an h2 for the outline, but looks like the body-text lead:
+   body font, weight and line height, in the section's text colour rather than
+   its heading colour. Component scoping outranks the theme's heading rule. */
+.hch-lead {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--section-text, inherit);
 }
 
 .hch-heading {
@@ -31,16 +44,19 @@
 .hch-step {
   counter-increment: step;
   min-width: 0;
-  border-top: 1px solid rgba(35, 54, 79, 0.3);
+  /* Rule and number follow the section theme when one is applied. */
+  border-top: 1px solid color-mix(in srgb, currentColor 60%, transparent);
   padding-top: 1.25rem;
 }
+/* 2rem numerals are large text, so the decorative highlight (e.g. ochre on
+   deep teal, 3.8:1) clears the 3:1 AA large-text minimum. */
 .hch-step::before {
   content: counter(step);
   display: block;
   font-family: var(--font-heading);
   font-size: 2rem;
   line-height: 1;
-  color: var(--navy);
+  color: var(--section-highlight, var(--navy));
   margin-bottom: 0.75rem;
 }
 .hch-step-title {
@@ -51,8 +67,8 @@
   margin: 0;
 }
 
-@media (max-width: 960px) {
-  .hch-intro {
-    grid-template-columns: 1fr;
-  }
+/* Section bands beyond the shared cream-light / mist pair. */
+.hch-band-cream {
+  background: var(--cream);
 }
+

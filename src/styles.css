@@ -28,6 +28,26 @@
   --on-dark: #ffffff;
   --on-dark-soft: rgba(255, 255, 255, 0.88);
 
+  /* Section palette — backgrounds and the text colours that pair with them.
+     Applied through the .section-* classes below, not used directly.
+     Section backgrounds: */
+  --linen-cream: #ede5d3; /* the composition's background */
+  --pale-teal: #dcebe5;
+  --blush-pink: #f4dfe3;
+  --deep-teal: #2e6f64;
+  --dark-plum: #3f2a47;
+  /* Text and accents on those backgrounds: */
+  --ink-dark: #1b1a17; /* body text on the light sections */
+  --deep-teal-dark: #1e5e54; /* headings on linen cream and pale teal */
+  --plum: #5a3462; /* headings on blush pink */
+  --vermilion: #b23a1c; /* accent on linen cream */
+  --warm-grey: #4a4640; /* accent on pale teal and blush pink */
+  --off-white: #f6f1e7; /* text on deep teal */
+  --ochre-light: #e8cc8a; /* highlight on deep teal — large text only (3.8:1) */
+  --cream-warm: #f2ebdc; /* body text on dark plum */
+  --ochre: #d9b872; /* headings on dark plum */
+  --pink: #f0a9b8; /* accent on dark plum */
+
   /* Typography. The mockup's face is Optima: native on Apple devices, with
      humanist fallbacks elsewhere. No web font download. */
   --font-heading: Optima, Candara, "Noto Sans", "Segoe UI", sans-serif;
@@ -193,6 +213,17 @@ summary:focus-visible {
   border-radius: 50%;
   background: var(--dot);
 }
+/* Smaller dots, for long lists of short entries. The dot is centred on the
+   first line of text (half the 1.65 body line-height, minus half the dot), so
+   it stays aligned when an entry wraps. */
+.dot-list-small li {
+  padding-left: 1.5rem;
+}
+.dot-list-small li::before {
+  width: 0.5rem;
+  height: 0.5rem;
+  top: calc(0.825em - 0.25rem);
+}
 
 /* ============================================================
    Shared page layout — the inner pages (About, How I can help,
@@ -221,10 +252,18 @@ summary:focus-visible {
   max-width: 44ch;
   margin-bottom: 0;
 }
+/* Optional call-to-action button under the lead, spaced as on the homepage hero. */
+.page-hero-cta {
+  margin-top: 2rem;
+}
 /* Decorative artwork; matches the compositions' 1672 × 1808 canvas so nothing is cropped. */
 .page-hero-art {
   width: clamp(140px, 18vw, 220px);
   aspect-ratio: 1672 / 1808;
+}
+/* Larger, more prominent hero artwork — same aspect ratio, so nothing is cropped. */
+.page-hero-art-large {
+  width: clamp(200px, 30vw, 400px);
 }
 
 .page-section {
@@ -234,9 +273,44 @@ summary:focus-visible {
 .page-section-alt {
   background: var(--mist);
 }
+
+.page-section-accent {
+  background: var(--accent);
+}
 .page-section-inner {
   max-width: var(--container);
   margin: 0 auto;
+}
+
+/* Text beside a column of boxed panels (put the .prose text first, then a
+   .page-aside holding one or more .page-box). Stacks below 960px. */
+.page-split {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+.page-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+}
+/* Boxed panel. Give it a .section-* theme for its background and colours. */
+.page-box {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+.page-box > :last-child {
+  margin-bottom: 0;
+}
+.page-box-heading {
+  font-size: var(--h2-card);
+  margin-bottom: 1.25rem;
+}
+@media (max-width: 960px) {
+  .page-split {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Running text: a readable measure, spaced headings, underlined inline links
@@ -263,6 +337,129 @@ summary:focus-visible {
 }
 .prose .btn {
   margin-top: 0.5rem;
+}
+
+/* ------------------------------------------------------------
+   Section colour themes — add one to any section (alongside
+   .page-section or a page's own section class) to set its
+   background and every text colour inside it. Named after the
+   background. Contrast ratios against the background in brackets.
+
+   Each theme sets:
+     --section-bg         background
+     --section-text       body text
+     --section-heading    h1–h3
+     --section-accent     links, buttons, focus ring — AA for small text
+     --section-highlight  decorative marks (list dots) and large text only
+   ------------------------------------------------------------ */
+.section-linen-cream {
+  --section-bg: var(--linen-cream);
+  --section-text: var(--ink-dark); /* 13.9 */
+  --section-heading: var(--deep-teal-dark); /* 6.0 */
+  --section-accent: var(--vermilion); /* 4.8 */
+  --section-highlight: var(--vermilion);
+}
+.section-pale-teal {
+  --section-bg: var(--pale-teal);
+  --section-text: var(--ink-dark); /* 14.1 */
+  --section-heading: var(--deep-teal-dark); /* 6.1 */
+  --section-accent: var(--warm-grey); /* 7.6 — also for captions and small print */
+  --section-highlight: var(--warm-grey);
+}
+.section-blush-pink {
+  --section-bg: var(--blush-pink);
+  --section-text: var(--ink-dark); /* 13.7 */
+  --section-heading: var(--plum); /* 7.9 */
+  --section-accent: var(--plum); /* 7.9 */
+  --section-highlight: var(--warm-grey);
+}
+/* Ochre is only 3.8:1 here, below AA for small text, so links and buttons use
+   the off-white body colour; ochre is kept for 24px+ headings and decoration. */
+.section-deep-teal {
+  --section-bg: var(--deep-teal);
+  --section-text: var(--off-white); /* 5.2 */
+  --section-heading: var(--off-white); /* 5.2 */
+  --section-accent: var(--off-white); /* 5.2 */
+  --section-highlight: var(--ochre-light); /* 3.8 — large text only */
+}
+.section-dark-plum {
+  --section-bg: var(--dark-plum);
+  --section-text: var(--cream-warm); /* 10.8 */
+  --section-heading: var(--ochre); /* 6.8 */
+  --section-accent: var(--pink); /* 6.8 */
+  --section-highlight: var(--pink);
+}
+
+:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum) {
+  background: var(--section-bg);
+  color: var(--section-text);
+}
+:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum)
+  :is(h1, h2, h3) {
+  color: var(--section-heading);
+}
+/* Inline links stay underlined (from .prose) — colour alone isn't enough. */
+:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum)
+  a:not(.btn) {
+  color: var(--section-accent);
+}
+:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum)
+  .dot-list
+  li::before {
+  background: var(--section-highlight);
+}
+:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum)
+  :focus-visible {
+  outline-color: var(--section-accent);
+}
+/* Buttons take the accent: solid fills with it, outlines draw in it. The label
+   on a filled button is the section background, at the same contrast. Both
+   outline variants adapt, so either works in any theme. */
+/* Hover swaps fill and outline, so contrast is the same in both states. The
+   :hover rules come last and are one pseudo-class more specific, so they win. */
+:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum)
+  .btn-primary {
+  background: var(--section-accent);
+  border-color: var(--section-accent);
+  color: var(--section-bg);
+}
+:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum)
+  :is(.btn-outline, .btn-outline-light) {
+  background: transparent;
+  border-color: var(--section-accent);
+  color: var(--section-accent);
+}
+:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum)
+  .btn-primary:hover {
+  background: transparent;
+  color: var(--section-accent);
+}
+:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum)
+  :is(.btn-outline, .btn-outline-light):hover {
+  background: var(--section-accent);
+  color: var(--section-bg);
+}
+
+/* Multicoloured list dots, cycling through the palette. Decorative only — the
+   text carries the meaning. Placed after the themes so it overrides their
+   single dot colour (same specificity, later rule wins). */
+.dot-list-multi li:nth-child(6n + 1)::before {
+  background: var(--deep-teal);
+}
+.dot-list-multi li:nth-child(6n + 2)::before {
+  background: var(--vermilion);
+}
+.dot-list-multi li:nth-child(6n + 3)::before {
+  background: var(--plum);
+}
+.dot-list-multi li:nth-child(6n + 4)::before {
+  background: var(--ochre);
+}
+.dot-list-multi li:nth-child(6n + 5)::before {
+  background: var(--dot);
+}
+.dot-list-multi li:nth-child(6n + 6)::before {
+  background: var(--pink);
 }
 
 @media (max-width: 600px) {
@@ -370,14 +567,19 @@ summary:focus-visible {
   text-transform: uppercase;
 }
 
+/* Fixed column gap: the header content stops widening at --container, so a
+   viewport-scaled gap kept growing on wide screens until the last link wrapped.
+   At 1.5rem the seven links need ~750px, leaving ~50px spare beside the
+   wordmark at full width. */
 .main-nav {
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
-  gap: 0.5rem clamp(1.25rem, 2.4vw, 2.25rem);
+  gap: 0.5rem 1.5rem;
 }
 .main-nav a {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
+  font-weight: 400;
   color: var(--ink-soft);
   white-space: nowrap;
   padding: 0.3rem 0.1rem;
@@ -390,6 +592,7 @@ summary:focus-visible {
 /* Current section — set by routerLinkActive in app.html. */
 .main-nav a.active {
   color: var(--navy);
+  font-weight: bold;
   border-bottom-color: var(--navy);
 }
 
@@ -505,8 +708,9 @@ summary:focus-visible {
 
 /* ====================== RESPONSIVE (chrome) ====================== */
 /* Header-only breakpoint: below this the seven nav links no longer fit on one
-   line beside the wordmark, so the header collapses to the menu toggle. */
-@media (max-width: 1120px) {
+   line beside the wordmark (they need ~1170px of viewport), so the header
+   collapses to the menu toggle. Re-check if a nav label gets longer. */
+@media (max-width: 1180px) {
   .header-inner {
     grid-template-columns: 1fr auto;
   }

@@ -1,88 +1,109 @@
 <main>
-  <section class="page-hero">
+  <section class="page-hero section-linen-cream">
     <div class="page-hero-inner">
       <div>
-        <h1 class="page-title">Couples therapy</h1>
+        <h1 class="page-title cpl-title">Couples therapy</h1>
         <p class="page-lead">
-          A space for both of you to be heard, understand the patterns between you, and find new
-          ways of relating.
+        A thoughtful, containing space in which both partners can feel heard and begin to understand what has happened between them.
         </p>
+        <a class="btn btn-primary page-hero-cta" routerLink="/contact"
+          >Get in touch <span class="btn-icon" aria-hidden="true">→</span></a
+        >
       </div>
       <!-- Illustration: abstract circles and lines -->
-      <div class="img-placeholder page-hero-art">
+      <div class="img-placeholder page-hero-art page-hero-art-large">
         <img src="images/composition-transparent.png" alt="" />
       </div>
     </div>
   </section>
 
-  <section class="page-section">
-    <div class="page-section-inner prose">
-      <h2>Working with couples</h2>
-      
-      <p>
-        I’m particularly interested in how couples can become caught in painful patterns, how
-        communication breaks down, and how understandable attempts to protect ourselves or have our
-        needs met can sometimes unintentionally make things worse.
-      </p>
-      <p>
-        During the first four sessions, we work together to understand these patterns and draw them
-        out on paper. This provides a kind of route map for the therapy that follows.
-      </p>
-      <p>
-        Therapy can provide an opportunity to slow these patterns down and understand what is
-        happening between you. We can explore how you communicate, what you each need and how you
-        might respond differently. An important part of this can be learning to repair ruptures —
-        those moments when we hurt, disappoint or misunderstand each other — rather than allowing
-        them to become increasingly entrenched.
-      </p>
-      <p>
-        I have specific training in Couple Therapy for Depression through Tavistock Relationships.
-        The training was integrative, drawing on both Emotion-Focused Therapy and Systemic Therapy.
-        Emotion-Focused Therapy explores the conscious and unconscious patterns we learn for
-        managing emotions, which can sometimes inadvertently disrupt relationships and make it
-        difficult to move forward. Systemic Therapy considers how people, their relationships, and
-        the wider systems they are part of — including family, community, culture, and social
-        structures — influence one another. I draw on these principles alongside CBT when working
-        with couples experiencing a range of difficulties.
-      </p>
-      <p>
-        I also have a particular interest in estrangement and the complex emotional and relational
-        issues that can arise when important relationships become distant or break down.
-      </p>
+  <!-- Text blocks sit inside a full-width .page-section-inner (rather than
+       sharing its element) so they line up on the left with the hero. -->
+  <section class="page-section section-linen-cream">
+    <div class="page-section-inner page-split">
+      <div class="prose">
+        <h2>Working with couples</h2>
+        <p>
+          Relationships can be a source of great fulfilment, but they can also bring periods of
+          difficulty, disconnection and distress. Couples can sometimes find themselves caught in
+          recurring patterns of interaction, where communication becomes strained and attempts to
+          feel heard, understood or reassured can unintentionally lead to further conflict or
+          distance.
+        </p>
+        <p>
+          Working together we can slow things down and make sense of the patterns that unfold
+          between you. We can explore what may be happening beneath the surface of your
+          difficulties, helping each of you to develop a deeper understanding of your own feelings
+          and needs, as well as those of your partner. Where helpful, we can also work towards
+          developing more constructive ways of communicating, managing disagreements and finding
+          solutions together.
+        </p>
+        <p>
+          An important aspect of this work is learning how to reconnect after moments of hurt,
+          disappointment or misunderstanding. Rather than allowing these experiences to create
+          lasting distance, therapy can help you find ways to acknowledge and repair difficulties,
+          rebuild trust and strengthen your emotional connection.
+        </p>
+        <p>
+          My approach as a couples therapist is impartial and collaborative. I do not take sides or
+          seek to establish who is right or wrong. However, I may at times gently challenge one or
+          both partners, drawing attention to patterns or dynamics that may be difficult to
+          recognise from within the relationship, but which could be contributing to
+          dissatisfaction or distress. My aim is to help you understand each other more fully and
+          consider different ways of relating.
+        </p>
+        <p>
+          Couples come to therapy for many different reasons. You may be experiencing ongoing
+          conflict, communication difficulties, anxiety or stress within your relationship, or
+          finding it difficult to navigate the demands of family life. Therapy can also offer
+          support during significant life transitions, such as becoming parents, bereavement,
+          separation or other changes that place new pressures on a relationship.
+        </p>
+        <p>
+          We can also explore the impact of sexual difficulties on your relationship, including how
+          these may affect intimacy, communication and emotional closeness. These issues can be
+          considered as part of our wider therapeutic work, although this is distinct from
+          specialist psychosexual therapy, which focuses more specifically on sexual functioning
+          and difficulties.
+        </p>
+      </div>
+      <div class="page-aside">
+        <div class="page-box section-pale-teal">
+          <h2 class="page-box-heading">Why couples come to therapy</h2>
+          <ul class="dot-list dot-list-small dot-list-multi">
+            @for (reason of reasons; track reason) {
+              <li>{{ reason }}</li>
+            }
+          </ul>
+        </div>
+        <!-- Decorative painting (abstract landscape with trees). -->
+        <div class="img-placeholder cpl-image">
+          <img src="images/kandinsky/poplars-2.jpeg" alt="" />
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="page-section page-section-alt">
-    <div class="page-section-inner prose">
-      <h2>Why couples come to therapy</h2>
-      <ul class="dot-list cpl-reasons">
-        @for (reason of reasons; track reason) {
-          <li>{{ reason }}</li>
-        }
-      </ul>
-    </div>
-  </section>
-
-  <section class="page-section">
-    <div class="page-section-inner prose">
-      <h2>Is couples therapy right for us?</h2>
-      <p>
-        Couples therapy can help whether you want to strengthen your relationship, get through a
-        difficult period, or think carefully about whether to stay together. You don’t need to agree
-        on everything — or even on the problem — to begin.
-      </p>
-      <p>
-        If there is violence or abuse in the relationship, or one of you feels afraid of the other,
-        couples therapy isn’t usually the right first step. Please mention this when you get in
-        touch, and we can think about what would help.
-      </p>
-      <p>
-        If you’d rather start on your own, I also offer individual therapy —
-        <a routerLink="/how-i-can-help">see how I can help</a>.
-      </p>
-      <a class="btn btn-outline" routerLink="/contact"
-        >Get in touch <span class="btn-icon" aria-hidden="true">→</span></a
-      >
+  <section class="page-section section-blush-pink">
+    <div class="page-section-inner">
+      <div class="prose">
+        <h2>Is couples therapy right for us?</h2>
+        <p>
+          Couples therapy can help whether you want to strengthen your relationship, get through a
+          difficult period, or think carefully about whether to stay together. You don’t need to
+          agree on everything — or even on the problem — to begin.
+        </p>
+        <p>
+         Couples therapy is not appropriate in every circumstance. Where there is ongoing coercive control, domestic violence or active addiction, including difficulties relating to substances, pornography or gambling, a different form of specialist support may be more appropriate. In these circumstances, the safety and wellbeing of each partner need to be considered first.
+        </p>
+        <p>
+          If you’d rather start on your own, I also offer individual therapy —
+          <a routerLink="/how-i-can-help">see how I can help</a>.
+        </p>
+        <a class="btn btn-primary" routerLink="/contact"
+          >Get in touch <span class="btn-icon" aria-hidden="true">→</span></a
+        >
+      </div>
     </div>
   </section>
 </main>

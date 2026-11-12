@@ -52,6 +52,16 @@
   margin-bottom: 0.4rem;
 }
 
+/* Contact detail lines: label/value pairs, not a bulleted list. */
+.privacy .privacy-contact {
+  list-style: none;
+  padding-left: 0;
+}
+
+.privacy .privacy-contact li {
+  margin-bottom: 0.25rem;
+}
+
 .privacy a {
   color: var(--navy);
   text-decoration: underline;

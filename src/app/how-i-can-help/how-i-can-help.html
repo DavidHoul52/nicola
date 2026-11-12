@@ -1,22 +1,24 @@
 <main>
-  <section class="page-hero">
+  <section class="page-hero section-linen-cream">
     <div class="page-hero-inner">
       <div>
-        <h1 class="page-title">How I can help</h1>
-        <p class="page-lead">
+        <h1 class="page-title hch-title">How I can help</h1>
+        <h2 class="page-lead hch-lead">
           CBT for emotional, relationship and health-related difficulties — focused on
           understanding what keeps you stuck, and building the skills to change it.
-        </p>
+        </h2>
+        <a class="btn btn-outline page-hero-cta" routerLink="/contact"
+          >Get in touch <span class="btn-icon" aria-hidden="true">→</span></a
+        >
       </div>
       <!-- Illustration: abstract circles and lines (tall) -->
-      <div class="img-placeholder page-hero-art">
+      <div class="img-placeholder page-hero-art page-hero-art-large">
         <img src="images/composition-2-transparent.png" alt="" />
       </div>
     </div>
   </section>
-
-  <section class="page-section">
-    <div class="page-section-inner hch-intro">
+  <section class="page-section section-linen-cream">
+    <div class="page-section-inner page-split">
       <div class="prose">
         <h2>What is CBT?</h2>
         <p>
@@ -29,19 +31,106 @@
           came from. Then, together, we try out new ways of relating to yourself, others and the
           world.
         </p>
-      </div>
-      <div class="hch-difficulties">
-        <h2 class="hch-difficulties-heading">Things people come to me with</h2>
-        <ul class="dot-list">
-          @for (item of difficulties; track item) {
-            <li>{{ item }}</li>
-          }
+
+        <h2>How CBT can help</h2>
+        <p>
+          Cognitive Behavioural Therapy (CBT) is a collaborative process. You are the expert on your
+          own experiences, while I bring my therapeutic knowledge and experience. We work together
+          to develop an understanding of the difficulties you’re experiencing and what might be
+          keeping them going.
+        </p>
+        <p>
+          We begin by exploring patterns in how you think, feel, behave and experience sensations in
+          your body, as well as how past experiences may have shaped these patterns. Some of the ways
+          we have learnt to think and cope may have served us well at one time, but may no longer
+          feel helpful or work in the way they once did. Developing an understanding of these
+          patterns can help us identify new ways of responding that better support you.
+        </p>
+
+        <h3>Bringing CBT to life: an example of low self-esteem</h3>
+        <p>
+          Imagine making a mistake at work or receiving feedback that you find difficult to hear.
+          This might trigger a familiar pattern of responses:
+        </p>
+        <ul class="dot-list dot-list-multi">
+          <li>
+            <strong>Thoughts:</strong> You might find yourself thinking, “I’m not good enough”,
+            “I’ve let everyone down” or “I’m going to get found out”.
+          </li>
+          <li>
+            <strong>Feelings:</strong> You might experience sadness, anxiety, shame or
+            embarrassment.
+          </li>
+          <li>
+            <strong>Body sensations:</strong> You might notice tension in your shoulders, a knot in
+            your stomach, a racing heart or a feeling of heaviness and exhaustion.
+          </li>
+          <li>
+            <strong>Behaviours:</strong> You might withdraw from others, avoid new challenges,
+            over-prepare, seek reassurance or become particularly self-critical.
+          </li>
         </ul>
+        <p>
+          These different responses are interconnected and can reinforce one another over time,
+          strengthening the belief that you’re not good enough and influencing how you see yourself
+          and what you feel able to do.
+        </p>
+
+        <h3>How might we work with this?</h3>
+        <p>
+          Together, we would explore where these patterns may have come from, what tends to trigger
+          them and how they are maintained. We might consider how earlier experiences have shaped the
+          way you see yourself, and whether the beliefs and ways of coping you’ve developed are still
+          serving you. We can then begin to gently question unhelpful patterns, develop a more
+          balanced and compassionate view of yourself, and experiment with different ways of
+          responding. I’m also interested in the ways emotional difficulties and relationship
+          patterns interact. Depression, anxiety, trauma, low self-worth and difficult life events
+          can effect how we relate to others, while relationship difficulties can leave us feeling
+          isolated, overwhelmed and stuck.
+        </p>
+
+        <h3>An evidence-based approach</h3>
+        <p>
+          CBT is an evidence-based approach, meaning it has been extensively researched and shown to
+          be effective in helping people manage a range of emotional and psychological difficulties.
+          It is recommended by the National Institute for Health and Care Excellence (NICE) in the
+          UK for a number of mental health conditions.
+        </p>
+      </div>
+      <!-- Right-hand column: boxed panels beside the CBT text. -->
+      <div class="page-aside">
+        <div class="page-box section-pale-teal">
+          <h2 class="page-box-heading">What I can help with</h2>
+          <ul class="dot-list dot-list-small dot-list-multi">
+            @for (item of difficulties; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        </div>
+        <div class="page-box section-blush-pink">
+          <!-- Linked from the homepage's "My approach" button (fragment "approach"). -->
+          <h2 class="page-box-heading" id="approach">My approach</h2>
+          <p>
+            A particular interest of mine is the way our emotional lives and our relationships
+            shape each other. In CBT we look closely at the patterns that keep difficulties going in
+            the present, and make sense of how they first developed. From there, we work on new
+            ways of responding — to yourself, to the people around you and to life more broadly —
+            so you can meet things with more kindness, confidence and flexibility.
+          </p>
+          <p>
+            I draw on a range of therapeutic approaches rather than believing that one model has
+            all the answers.
+          </p>
+        </div>
+        <!-- TODO(client): image and its alt text to be confirmed. -->
+        <div class="img-placeholder hch-image">
+          <img src="images/kandinsky/murnau - landscape with green house.jpeg" alt="" />
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="page-section page-section-alt">
+  <section class="page-section section-deep-teal">
     <div class="page-section-inner">
       <h2 class="hch-heading">How therapy works</h2>
       <ol class="hch-steps">
@@ -55,53 +144,21 @@
     </div>
   </section>
 
-  <section class="page-section">
-    <div class="page-section-inner prose">
-      <h2>What you can expect</h2>
-      <p>
-        Both individual and couples CBT are time-limited therapies, typically lasting a maximum of
-        20 weeks.
-      </p>
-      <p>
-        The aim is for you to become your own therapist by developing the knowledge, skills and
-        confidence to use CBT strategies independently in everyday life. This can make therapy
-        more affordable while also promoting greater autonomy and empowerment.
-      </p>
-      <p>
-        Following therapy, you may benefit from a period of consolidation to practise and embed
-        your skills. If needed, you can return for further therapy after this period.
-      </p>
-      <p>
-        Therapy is a collaborative process. I’ll draw on my experience and knowledge to help you
-        understand what is happening, while working with you to find an approach that feels
-        meaningful and useful.
-      </p>
-      <p>
-        I continue to learn and read widely, drawing on ideas from different therapeutic
-        traditions. I’m interested in what helps people make lasting changes, develop greater
-        self-understanding and compassion, and build relationships that feel more connected and
-        workable.
-      </p>
-      <p>
-        My aim is for therapy to be a space where you can feel understood, think about things
-        differently and explore possibilities for change — with someone who brings both
-        professional expertise and genuine human curiosity.
-      </p>
-    </div>
-  </section>
+  
 
-  <!-- Alternates with the section above so the bands stay distinct. -->
-  <section class="page-section page-section-alt">
-    <div class="page-section-inner prose">
-      <h2>Individual or couples therapy</h2>
-      <p>
-        I work with individuals and with couples. If the difficulties you’re facing are
-        centred on your relationship, couples therapy gives you both space to be heard and to
-        understand the patterns between you.
-      </p>
-      <a class="btn btn-outline" routerLink="/couples-therapy"
-        >About couples therapy <span class="btn-icon" aria-hidden="true">→</span></a
-      >
+  <section class="page-section section-blush-pink">
+    <div class="page-section-inner">
+      <div class="prose">
+        <h2>Individual or couples therapy?</h2>
+        <p>
+          I work with individuals and with couples. If the difficulties you’re facing are
+          centred on your relationship, couples therapy gives you both space to be heard and to
+          understand the patterns between you.
+        </p>
+        <a class="btn btn-primary" routerLink="/couples-therapy"
+          >About couples therapy <span class="btn-icon" aria-hidden="true">→</span></a
+        >
+      </div>
     </div>
   </section>
 </main>

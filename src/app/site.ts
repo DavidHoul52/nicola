@@ -7,8 +7,10 @@
  */
 export const SITE = {
   /** Practitioner's name as shown in the header, footer and page titles. */
-  name: 'Nicola',
+  name: 'Nicola Akhurst',
   /** Shown under the name in the header wordmark. */
+  fullname: 'Nicola Akhurst',
+  onlinevideoplatform: 'Zoom',
   tagline: 'Psychological Therapist',
   /** Credentials line shown under the name in the footer. Empty hides it. */
   credentials: 'BABCP-accredited psychological therapist',

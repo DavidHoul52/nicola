@@ -101,7 +101,7 @@ export class App {
   private readonly meta = inject(Meta);
 
   constructor(router: Router, viewportScroller: ViewportScroller) {
-    // Fragment links (e.g. /about#approach) would otherwise land under the
+    // Fragment links (e.g. /how-i-can-help#approach) would otherwise land under the
     // sticky header: the router scrolls with window.scrollTo, which ignores CSS
     // scroll-margin, so offset by the header's live height (0 when it's hidden).
     viewportScroller.setOffset(() => [
@@ -149,7 +149,7 @@ export class App {
     { label: 'About', link: '/about' },
     { label: 'How I can help', link: '/how-i-can-help' },
     { label: 'Couples therapy', link: '/couples-therapy' },
-    { label: 'Fees and practicalities', link: '/fees' },
+    { label: 'Fees & practicalities', link: '/fees' },
     { label: 'FAQs', link: '/faqs' },
     { label: 'Contact', link: '/contact' },
   ];

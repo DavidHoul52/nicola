@@ -1,7 +1,24 @@
 /* Fees and practicalities page — page-specific layout.
    Uses the global brand tokens, .btn classes and page layout from src/styles.css.
-   Only page-specific rules live here, namespaced with the `fees-` prefix. */
+   Only page-specific rules live here, namespaced with the `fees-` prefix.
+   Colours come from the section themes' --section-* variables. */
 
+/* Navy h1, as on the other pages, rather than the linen-cream theme's teal
+   heading colour. Component scoping outranks the theme's heading rule. */
+.fees-title {
+  color: var(--navy);
+}
+
+/* Fees table in an outlined, softly rounded panel. */
+.fees-table-box {
+  border: 1px solid color-mix(in srgb, var(--section-text, var(--ink)) 35%, transparent);
+  border-radius: 8px;
+  padding: clamp(1.25rem, 3vw, 2rem) clamp(1.25rem, 3vw, 2rem) clamp(0.5rem, 1.5vw, 1rem);
+}
+.fees-table-heading {
+  font-size: var(--h2-sub);
+  margin-bottom: 1rem;
+}
 .fees-table {
   width: 100%;
   border-collapse: collapse;
@@ -10,36 +27,48 @@
 .fees-table th,
 .fees-table td {
   text-align: left;
-  vertical-align: top;
+  vertical-align: middle;
   padding: 1rem 1rem 1rem 0;
-  border-bottom: 1px solid rgba(35, 54, 79, 0.2);
+  border-bottom: 1px solid color-mix(in srgb, var(--section-text, var(--ink)) 18%, transparent);
   overflow-wrap: anywhere;
+}
+/* Fee column sits on the right edge. */
+.fees-table th:last-child,
+.fees-table td:last-child {
+  text-align: right;
+  padding-right: 0;
 }
 .fees-table thead th {
   font-size: 0.8rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  border-bottom-color: rgba(35, 54, 79, 0.45);
+  padding-top: 0.5rem;
+  border-bottom: 2px solid var(--section-heading, var(--navy));
 }
 /* Session column gets the most room. */
 .fees-table th:first-child {
-  width: 45%;
+  width: 55%;
 }
 .fees-table tbody th {
-  font-weight: 500;
-  color: var(--navy);
+  font-weight: 400;
+  color: inherit;
+}
+.fees-table tbody td:last-child {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--section-heading, var(--navy));
 }
 
-/* Practicalities: two columns of short sections. */
+/* Practicalities: three columns of short sections, with a painting in the
+   top-middle cell. */
 .fees-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2.5rem clamp(2rem, 5vw, 4rem);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem clamp(2rem, 4vw, 3rem);
 }
 .fees-item {
   min-width: 0;
-  max-width: 56ch;
 }
 .fees-item-heading {
   font-size: var(--h2-card);
@@ -48,9 +77,48 @@
 .fees-item p {
   margin: 0;
 }
+.fees-item p + p {
+  margin-top: 0.75rem;
+}
+/* Same treatment as .prose links: underlined, since colour alone can't mark a link.
+   Colour comes from the section theme. */
+.fees-item a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+.fees-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  align-self: start;
+}
+
+/* "Any other questions?": text on the left, a small painting on the right. */
+.fees-questions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+.fees-questions-image {
+  width: clamp(180px, 20vw, 250px);
+  aspect-ratio: 3 / 2;
+}
+
+@media (max-width: 960px) {
+  .fees-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 @media (max-width: 600px) {
   .fees-grid {
+    grid-template-columns: 1fr;
+  }
+  .fees-image {
+    max-width: 22rem;
+  }
+  .fees-questions {
     grid-template-columns: 1fr;
   }
   .fees-table th,
@@ -59,6 +127,6 @@
     font-size: 0.95rem;
   }
   .fees-table th:first-child {
-    width: 40%;
+    width: 45%;
   }
 }

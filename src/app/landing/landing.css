@@ -74,11 +74,29 @@
 .lnd-about-text {
   max-width: 62ch;
 }
+/* Inline links in the copy (e.g. BABCP "find out more"). The global reset
+   strips underlines, so restore them to match `.prose a` on inner pages. */
+.lnd-about-text p a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-thickness 0.15s ease;
+}
+.lnd-about-text p a:hover {
+  text-decoration-thickness: 2px;
+}
 /* Links through to the full pages. */
 .lnd-about-text .btn,
 .lnd-approach-text .btn,
 .lnd-therapy-col .btn {
   margin-top: 0.75rem;
+}
+/* Pair of buttons under the About copy; wraps onto two lines when narrow. */
+.lnd-about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
 }
 
 /* ============================ MY APPROACH ============================ */
@@ -118,6 +136,25 @@
   width: 6rem;
   aspect-ratio: 1;
   border-radius: 50%;
+}
+/* For artwork whose main circle has details that reach past it (a line, an
+   offset ring). The PNG is a square centred on the main circle, which spans
+   512/656 of it. Sizing the image to 656/512 of the box and offsetting it by
+   72/512 makes that circle exactly fill the box, like the full-bleed icons, and
+   lets the details spill past the edge instead of being clipped. */
+.lnd-approach-icon--bleed {
+  overflow: visible;
+  border-radius: 0;
+}
+.lnd-approach-icon--bleed img {
+  position: absolute;
+  top: -14.0625%;
+  left: -14.0625%;
+  width: 128.125%;
+  height: 128.125%;
+  /* The global img { max-width: 100% } would otherwise cap the width at the
+     box, and object-fit: cover would then crop the overhanging details. */
+  max-width: none;
 }
 .lnd-approach-label {
   font-size: 1rem;
@@ -175,7 +212,8 @@
   margin-bottom: 1.5rem;
 }
 .lnd-cta-art {
-  width: 160px;
+  width: 460px;
+  height: auto;
 }
 
 /* ============================ RESPONSIVE ============================ */

@@ -1,48 +1,58 @@
 <main>
-  <section class="page-hero">
+  <section class="page-hero section-linen-cream">
     <div class="page-hero-inner">
       <div>
-        <h1 class="page-title">Fees and practicalities</h1>
+        <h1 class="page-title fees-title">Fees and practicalities</h1>
         <p class="page-lead">What sessions cost, where they take place, and how therapy is arranged.</p>
       </div>
       <!-- Illustration: abstract circles and lines (tall) -->
-      <div class="img-placeholder page-hero-art">
+      <div class="img-placeholder page-hero-art page-hero-art-large">
         <img src="images/composition-2-transparent.png" alt="" />
       </div>
     </div>
   </section>
 
-  <section class="page-section">
-    <div class="page-section-inner prose">
-      <h2>Fees</h2>
-      <table class="fees-table">
-        <caption class="sr-only">Session fees</caption>
-        <thead>
-          <tr>
-            <th scope="col">Session</th>
-            <th scope="col">Length</th>
-            <th scope="col">Fee</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (fee of fees; track fee.service) {
+  <section class="page-section section-linen-cream">
+    <div class="page-section-inner">
+      <div class="fees-table-box">
+        <h2 class="fees-table-heading">Fees</h2>
+        <table class="fees-table">
+          <caption class="sr-only">Session fees</caption>
+          <thead>
             <tr>
-              <th scope="row">{{ fee.service }}</th>
-              <td>{{ fee.length }}</td>
-              <td>{{ fee.price }}</td>
+              <th scope="col">Session</th>
+              <th scope="col">Length</th>
+              <th scope="col">Fee</th>
             </tr>
-          }
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            @for (fee of fees; track fee.service) {
+              <tr>
+                <th scope="row">{{ fee.service }}</th>
+                <td>{{ fee.length }}</td>
+                <td>{{ fee.price }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
   <!-- TODO(client): confirm each practicality below. -->
-  <section class="page-section page-section-alt">
+  <section class="page-section section-pale-teal">
     <div class="page-section-inner fees-grid">
       <div class="fees-item">
         <h2 class="fees-item-heading">Where sessions take place</h2>
-        <p>Details of in-person and online sessions to be confirmed.</p>
+        <p>
+          In person at
+          <a href="https://www.wokinghamtherapyclinic.com/" rel="noopener">Wokingham Therapy Clinic</a>.
+        </p>
+        <p>Online therapy can also be arranged.</p>
+      </div>
+      <!-- Decorative painting (abstract town scene). TODO(client): add the image file. -->
+      <div class="img-placeholder fees-image">
+        <img src="images/kandinsky/Landscape with Two Poplars.jpg" alt="" />
       </div>
       <div class="fees-item">
         <h2 class="fees-item-heading">How often we meet</h2>
@@ -53,15 +63,11 @@
       </div>
       <div class="fees-item">
         <h2 class="fees-item-heading">Payment</h2>
-        <p>Payment methods and timing to be confirmed.</p>
+        <p>Card payment taken at the beginning of the session.</p>
       </div>
       <div class="fees-item">
         <h2 class="fees-item-heading">Cancellations</h2>
         <p>Cancellation notice period and policy to be confirmed.</p>
-      </div>
-      <div class="fees-item">
-        <h2 class="fees-item-heading">Health insurance</h2>
-        <p>Details of any insurers I am registered with to be confirmed.</p>
       </div>
       <div class="fees-item">
         <h2 class="fees-item-heading">Confidentiality</h2>
@@ -69,20 +75,34 @@
           What you share in therapy stays confidential. The rare exceptions — such as a serious
           risk to you or someone else — are explained in our first session.
         </p>
+        <p>
+          How your personal information is stored and used is set out in the
+          <a routerLink="/privacy">privacy notice</a>.
+        </p>
+      </div>
+      <div class="fees-item">
+        <h2 class="fees-item-heading">Health insurance</h2>
+        <p>Details of any insurers I am registered with to be confirmed.</p>
       </div>
     </div>
   </section>
 
-  <section class="page-section">
-    <div class="page-section-inner prose">
-      <h2>Any other questions?</h2>
-      <p>
-        You may find the answer in the <a routerLink="/faqs">frequently asked questions</a>, or you
-        are welcome to ask me directly.
-      </p>
-      <a class="btn btn-outline" routerLink="/contact"
-        >Get in touch <span class="btn-icon" aria-hidden="true">→</span></a
-      >
+  <section class="page-section section-blush-pink">
+    <div class="page-section-inner fees-questions">
+      <div class="prose">
+        <h2>Any other questions?</h2>
+        <p>
+          You may find the answer in the <a routerLink="/faqs">frequently asked questions</a>, or
+          you are welcome to ask me directly.
+        </p>
+        <a class="btn btn-primary" routerLink="/contact"
+          >Get in touch <span class="btn-icon" aria-hidden="true">→</span></a
+        >
+      </div>
+      <!-- Decorative painting (abstract circles). TODO(client): add the image file. -->
+      <div class="img-placeholder fees-questions-image">
+        <img src="images/kandinsky/several circles.jpeg" alt="" />
+      </div>
     </div>
   </section>
 </main>

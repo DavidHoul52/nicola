@@ -2,13 +2,181 @@
   <div class="privacy-inner">
     <p class="privacy-back"><a routerLink="/">← Back to {{ site.name }}</a></p>
     <h1 class="privacy-title">Privacy Notice</h1>
-    <!-- TODO: privacy notice content from the client — this is a placeholder. -->
-    <p class="privacy-updated"><strong>Last updated:</strong> to be confirmed</p>
+    <!-- TODO(client): date this notice was last updated. -->
+    <p class="privacy-updated"><strong>Last updated:</strong> To be confirmed</p>
 
     <h2>Who I Am</h2>
     <p>
+      I am {{ site.fullname }}, a counsellor in private practice. I am committed to protecting
+      your privacy and handling your personal information responsibly and in accordance with UK
+      data protection law.
+    </p>
+    <p>
       If you have any questions about this Privacy Notice or how your information is used, you
-      can contact me at <a [href]="'mailto:' + site.email">{{ site.email }}</a>.
+      can contact me at:
+    </p>
+    <ul class="privacy-contact">
+      <li>
+        <strong>Email:</strong> <a [href]="'mailto:' + site.email">{{ site.email }}</a>
+      </li>
+      @if (site.phone) {
+        <li>
+          <strong>Telephone:</strong> <a [href]="'tel:' + phoneHref">{{ site.phone }}</a>
+        </li>
+      }
+      <li>
+        <strong>Website:</strong> <a [href]="site.origin">{{ websiteLabel }}</a>
+      </li>
+    </ul>
+
+    <h2>What Information I Collect</h2>
+    <h3>When you contact me</h3>
+    <p>
+      If you make an enquiry through my website, email, telephone, or online directory profile, I
+      may collect:
+    </p>
+    <ul>
+      <li>Your name</li>
+      <li>Email address</li>
+      <li>Telephone number</li>
+      <li>Information you choose to share about your situation</li>
+    </ul>
+
+    <h3>If you become a client</h3>
+    <p>I may collect and process:</p>
+    <ul>
+      <li>Contact details</li>
+      <li>Emergency contact details</li>
+      <li>GP details (where relevant)</li>
+      <li>Session notes</li>
+      <li>Information relating to your health, wellbeing, relationships, and personal circumstances</li>
+      <li>Administrative and payment records</li>
+    </ul>
+    <p>
+      Some of this information is classified as <strong>special category personal data</strong>
+      because it relates to health and wellbeing.
+    </p>
+
+    <h2>Why I Collect Your Information</h2>
+    <p>I collect and use personal information to:</p>
+    <ul>
+      <li>Respond to enquiries</li>
+      <li>Arrange and provide counselling sessions</li>
+      <li>Maintain counselling records</li>
+      <li>Manage appointments and payments</li>
+      <li>Comply with professional, ethical, legal, and insurance requirements</li>
+      <li>Protect clients or others where safeguarding concerns arise</li>
+    </ul>
+
+    <h2>Lawful Basis for Processing</h2>
+    <p>The lawful bases I rely upon are:</p>
+    <ul>
+      <li>Performance of a contract (providing counselling services)</li>
+      <li>Legitimate interests (running and administering my practice)</li>
+      <li>Compliance with legal obligations</li>
+      <li>Provision of health and wellbeing support (special category data)</li>
+    </ul>
+
+    <h2>Confidentiality</h2>
+    <p>Everything discussed in counselling is treated confidentially.</p>
+    <p>However, confidentiality may be broken where:</p>
+    <ul>
+      <li>There is a serious risk of harm to yourself or another person</li>
+      <li>There are safeguarding concerns involving a child or vulnerable adult</li>
+      <li>Disclosure is required by law or court order</li>
+      <li>You provide consent for information to be shared</li>
+    </ul>
+    <p>Where possible, I will discuss any disclosure with you first.</p>
+
+    <h2>How Long Information Is Kept</h2>
+    <p>Enquiry information is normally retained for up to 12 months.</p>
+    <p>
+      Client records are normally retained for 7 years after counselling ends (or longer where
+      professional, insurance, or legal requirements make this necessary).
+    </p>
+    <p>Information is then securely deleted or destroyed.</p>
+
+    <h2>How Your Information Is Stored</h2>
+    <p>
+      Where online counselling sessions are provided, I use {{ site.onlinevideoplatform }}, a
+      secure video consultation platform. Information necessary to facilitate online appointments
+      may be processed through {{ site.onlinevideoplatform }}.
+    </p>
+    <p>
+      Electronic records are protected using appropriate security measures, including password
+      protection and secure systems designed to prevent unauthorised access, loss, or misuse.
+    </p>
+
+    <h2>Sharing Information</h2>
+    <p>Your personal information will not be sold or shared for marketing purposes.</p>
+    <p>Information may be shared only where necessary with:</p>
+    <ul>
+      <li>My clinical supervisor (with identifying information minimised wherever possible)</li>
+      <li>Professional advisers, insurers, or legal representatives where required</li>
+      <li>Safeguarding agencies where there is a risk of serious harm</li>
+      <li>Law enforcement or regulatory bodies where required by law</li>
+    </ul>
+
+    <h2>Online Counselling</h2>
+    <p>
+      If you choose to attend counselling online, sessions are conducted using
+      {{ site.onlinevideoplatform }}.
+    </p>
+    <p>
+      While reasonable steps are taken to ensure confidentiality and security, no internet-based
+      communication system can be guaranteed to be completely secure. By participating in online
+      counselling, you acknowledge and accept the inherent risks associated with electronic
+      communication.
+    </p>
+    <p>
+      You are encouraged to access sessions from a private location and to take reasonable steps
+      to protect your own privacy and security.
+    </p>
+
+    <h2>Your Rights</h2>
+    <p>Under UK data protection law, you have rights including:</p>
+    <ul>
+      <li>The right to be informed</li>
+      <li>The right of access</li>
+      <li>The right to rectification</li>
+      <li>The right to erasure (in certain circumstances)</li>
+      <li>The right to restrict processing</li>
+      <li>The right to object</li>
+      <li>The right to data portability (where applicable)</li>
+    </ul>
+    <p>Requests relating to your data should be made using the contact details above.</p>
+
+    <h2>Cookies and Website Analytics</h2>
+    <p>This website may use essential cookies required for the operation of the site.</p>
+    <p>You can control cookies through your browser settings.</p>
+
+    <h2>Data Protection Complaints</h2>
+    <p>
+      If you have concerns about how I have handled your personal information, please contact me
+      in the first instance using the details above.
+    </p>
+    <p>I maintain a formal process for handling data protection complaints and will:</p>
+    <ul>
+      <li>Acknowledge your complaint within 30 calendar days</li>
+      <li>Investigate the matter fairly and without undue delay</li>
+      <li>Inform you of the outcome and any actions taken</li>
+    </ul>
+    <p>
+      If you remain dissatisfied, you have the right to complain to the Information
+      Commissioner’s Office (ICO):
+    </p>
+    <ul class="privacy-contact">
+      <li>
+        <strong>Website:</strong>
+        <a href="https://ico.org.uk/make-a-complaint/" rel="noopener">https://ico.org.uk/make-a-complaint/</a>
+      </li>
+      <li><strong>Telephone:</strong> <a href="tel:03031231113">0303 123 1113</a></li>
+    </ul>
+
+    <h2>Changes to This Privacy Notice</h2>
+    <p>
+      This Privacy Notice may be updated from time to time. The latest version will always be
+      available on <a [href]="site.origin">{{ websiteLabel }}</a>.
     </p>
   </div>
 </main>

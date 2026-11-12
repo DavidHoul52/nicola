@@ -27,8 +27,8 @@ const TBC = 'To be confirmed';
 })
 export class Fees {
   protected readonly fees: Fee[] = [
-    { service: 'Initial consultation', length: TBC, price: TBC },
-    { service: 'Individual CBT session', length: TBC, price: TBC },
-    { service: 'Couples therapy session', length: TBC, price: TBC },
+   
+    { service: 'Individual CBT session', length: '60 minutes', price: '£85' },
+    { service: 'Couples therapy session', length: '60 minutes', price: '£110' },
   ];
 }

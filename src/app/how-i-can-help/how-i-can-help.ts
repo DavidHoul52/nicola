@@ -26,7 +26,7 @@ export class HowICanHelp {
     'Depression',
     'Post-traumatic stress disorder (PTSD)',
     'Anxiety, including OCD, social anxiety, health anxiety, phobias, panic, generalised anxiety and body dysmorphia',
-    'Family estrangement',
+   
     'Neurodivergence, with therapy adapted to how you think and process information',
     'Relationship difficulties',
   ];
@@ -35,7 +35,7 @@ export class HowICanHelp {
   protected readonly steps: Step[] = [
     {
       title: 'Getting in touch',
-      text: 'Send me a short enquiry. I’ll get back to you to arrange an initial conversation, so we can think together about whether working with me is right for you.',
+      text: 'Send me a short enquiry. I’ll get back to you to arrange an initial conversation, so we can think together about whether working with me is right for you. Both individual and couples CBT are time-limited therapies, typically lasting a maximum of 20 weeks.',
     },
     {
       title: 'Assessment',
@@ -43,11 +43,11 @@ export class HowICanHelp {
     },
     {
       title: 'Working together',
-      text: 'We explore the patterns keeping difficulties going and practise new ways of responding.',
+      text: 'We explore how you make sense of experiences, the thoughts and beliefs that shape your responses, and practise new ways of thinking and responding. The aim is for you to become your own therapist by developing the knowledge, skills and confidence to use CBT strategies independently in everyday life. This can make therapy more affordable while also promoting greater autonomy and empowerment.',
     },
     {
       title: 'Consolidation',
-      text: 'Sessions become less frequent as you put your skills into practice on your own.',
+      text: 'Over time, you develop the confidence to draw on your growing self-understanding and new skills in everyday life. By working in a focused, time-limited and cost-effective way, therapy aims to equip you with the tools and confidence to move forward independently, supporting a greater sense of autonomy and empowerment.',
     },
   ];
 }

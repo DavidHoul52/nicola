@@ -26,18 +26,21 @@
   max-width: var(--container);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* Text column slightly wider than the art column so the widened title
+     (17.5ch at full size) fits without being squeezed; the art (max 450px)
+     still fits its column. */
+  grid-template-columns: 1.2fr 1fr;
   align-items: center;
   gap: clamp(2rem, 5vw, 4rem);
 }
 .lnd-hero-title {
   font-size: var(--h1-hero);
-  max-width: 14ch;
+  max-width: 17.5ch;
   margin-bottom: 1.5rem;
 }
 .lnd-hero-subtitle {
   font-size: clamp(1.15rem, 2vw, 1.35rem);
-  max-width: 30ch;
+  max-width: 37.5ch;
   margin-bottom: 2rem;
 }
 /* Large, sitting centre right (the grid's align-items centres it vertically).
@@ -92,11 +95,32 @@
 .lnd-therapy-col .btn {
   margin-top: 0.75rem;
 }
-/* Pair of buttons under the About copy; wraps onto two lines when narrow. */
-.lnd-about-actions {
+/* "Learn more about" label and a row of compact pill links under the About
+   copy. The pills wrap onto further lines when narrow. */
+/* Styled as a small heading (heading font, navy) so it reads as the lead-in to
+   the pills rather than as body copy. */
+.lnd-learn-label {
+  margin: 2.25rem 0 1rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2vw, 1.35rem);
+  line-height: 1.3;
+  color: var(--navy);
+}
+.lnd-learn-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 0 1rem;
+  gap: 0.6rem;
+}
+/* Smaller than the standard .btn; spacing comes from the list gap, so drop
+   the margin-top the other landing buttons get (same specificity, later wins). */
+.lnd-learn-links .btn {
+  margin-top: 0;
+  padding: 0.5rem 1.1rem;
+  gap: 0.45rem;
+  font-size: 0.95rem;
 }
 
 /* ============================ MY APPROACH ============================ */
@@ -163,8 +187,8 @@
 }
 
 /* ===================== THERAPY WITH ME / MY STYLE ===================== */
+/* Background comes from the .section-cream-light theme in the markup. */
 .lnd-therapy {
-  background: var(--cream-light);
   padding: var(--section-pad) 1.5rem;
 }
 .lnd-therapy-inner {
@@ -217,10 +241,26 @@
 }
 
 /* ============================ RESPONSIVE ============================ */
+/* "What therapy looks like": the four circles only fit on one row when their
+   column is at least 33rem (4 × 7.5rem + 3 × 1rem gaps). Side by side with the
+   text, the column reaches that only from ~1170px wide, so below 1180px (which
+   includes iPad landscape, 1024px) the circles move under the text instead of
+   wrapping three-plus-one beside it. A section-specific breakpoint because
+   the problem sits between the site's standard 960px and full width. */
+@media (max-width: 1180px) {
+  .lnd-approach-inner {
+    grid-template-columns: 1fr;
+  }
+  /* Keep the row of circles close to the text width rather than stretched
+     across the whole container. */
+  .lnd-approach-list {
+    max-width: 44rem;
+  }
+}
+
 @media (max-width: 960px) {
   .lnd-hero-inner,
-  .lnd-about-inner,
-  .lnd-approach-inner {
+  .lnd-about-inner {
     grid-template-columns: 1fr;
   }
   .lnd-hero-art {

@@ -2,8 +2,15 @@
    Uses the global brand tokens, .btn classes and page layout from src/styles.css.
    Only page-specific rules live here, namespaced with the `abt-` prefix. */
 
-/* Navy h1, as on the other pages, rather than the linen-cream theme's teal
-   heading colour. Component scoping outranks the theme's heading rule. */
+/* Hero buttons stacked one above the other, each at its natural width. */
+.abt-hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+/* Navy h1 rather than the base --ink heading colour. */
 .abt-title {
   color: var(--navy);
 }

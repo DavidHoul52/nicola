@@ -1,10 +1,10 @@
 <main>
-  <section class="page-hero section-linen-cream">
+  <section class="page-hero">
     <div class="page-hero-inner">
       <div>
-        <h1 class="page-title hch-title">How I can help</h1>
+        <h1 class="page-title hch-title">How I can help using CBT</h1>
         <h2 class="page-lead hch-lead">
-          CBT for emotional, relationship and health-related difficulties — focused on
+          Cognitive behavioural therapy (CBT) for emotional, relationship and health-related difficulties — focused on
           understanding what keeps you stuck, and building the skills to change it.
         </h2>
         <a class="btn btn-outline page-hero-cta" routerLink="/contact"
@@ -17,7 +17,7 @@
       </div>
     </div>
   </section>
-  <section class="page-section section-linen-cream">
+  <section class="page-section section-cream-light">
     <div class="page-section-inner page-split">
       <div class="prose">
         <h2>What is CBT?</h2>
@@ -30,6 +30,14 @@
           Alongside what is happening in the present, we also make sense of where those patterns
           came from. Then, together, we try out new ways of relating to yourself, others and the
           world.
+        </p>
+
+          <h3>An evidence-based approach</h3>
+        <p>
+          CBT is an evidence-based approach, meaning it has been extensively researched and shown to
+          be effective in helping people manage a range of emotional and psychological difficulties.
+          It is recommended by the National Institute for Health and Care Excellence (NICE) in the
+          UK for a number of mental health conditions.
         </p>
 
         <h2>How CBT can help</h2>
@@ -85,17 +93,11 @@
           balanced and compassionate view of yourself, and experiment with different ways of
           responding. I’m also interested in the ways emotional difficulties and relationship
           patterns interact. Depression, anxiety, trauma, low self-worth and difficult life events
-          can effect how we relate to others, while relationship difficulties can leave us feeling
+          can affect how we relate to others, while relationship difficulties can leave us feeling
           isolated, overwhelmed and stuck.
         </p>
 
-        <h3>An evidence-based approach</h3>
-        <p>
-          CBT is an evidence-based approach, meaning it has been extensively researched and shown to
-          be effective in helping people manage a range of emotional and psychological difficulties.
-          It is recommended by the National Institute for Health and Care Excellence (NICE) in the
-          UK for a number of mental health conditions.
-        </p>
+      
       </div>
       <!-- Right-hand column: boxed panels beside the CBT text. -->
       <div class="page-aside">
@@ -107,7 +109,7 @@
             }
           </ul>
         </div>
-        <div class="page-box section-blush-pink">
+        <div class="page-box section-peach">
           <!-- Linked from the homepage's "My approach" button (fragment "approach"). -->
           <h2 class="page-box-heading" id="approach">My approach</h2>
           <p>
@@ -130,13 +132,13 @@
     </div>
   </section>
 
-  <section class="page-section section-deep-teal">
+  <section class="page-section section-peach">
     <div class="page-section-inner">
-      <h2 class="hch-heading">How therapy works</h2>
-      <ol class="hch-steps">
+      <h2 class="steps-heading">How therapy works</h2>
+      <ol class="steps">
         @for (step of steps; track step.title) {
-          <li class="hch-step">
-            <h3 class="hch-step-title">{{ step.title }}</h3>
+          <li class="steps-item">
+            <h3 class="steps-title">{{ step.title }}</h3>
             <p>{{ step.text }}</p>
           </li>
         }
@@ -146,7 +148,7 @@
 
   
 
-  <section class="page-section section-blush-pink">
+  <section class="page-section section-deep-teal">
     <div class="page-section-inner">
       <div class="prose">
         <h2>Individual or couples therapy?</h2>

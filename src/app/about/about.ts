@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 /**
- * About page, served at `/about`: Nicola's training and qualifications.
+ * Experience & Qualifications page, served at `/experience`: Nicola's training
+ * and qualifications.
  *
  * TODO(client): draft copy built from the homepage text — Nicola to review and
  * extend (e.g. full qualifications and any memberships beyond BABCP).
  */
 @Component({
   selector: 'app-about',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './about.html',
   styleUrl: './about.css',
 })
@@ -21,8 +23,6 @@ export class About {
     { text: 'Postgraduate Diploma in Psychological Interventions, University of Reading' },
     {
       text: 'Couple Therapy for Depression, Tavistock Relationships',
-      // Tavistock's public register of approved CTfD practitioners.
-      url: 'https://tavistockrelationships.org/training-for-organisations/couple-therapy-for-depression-training/approved-practitioners-supervisors',
     },
     {
       text: 'Exploring Intimacy: Learn to talk confidently with clients about sex, Basingstoke Counselling Service',

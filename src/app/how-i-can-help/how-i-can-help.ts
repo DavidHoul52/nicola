@@ -7,7 +7,7 @@ interface Step {
 }
 
 /**
- * "How I can help" page, served at `/how-i-can-help`: what CBT is, the
+ * "How I can help with CBT" page, served at `/cbt`: what CBT is, the
  * difficulties Nicola works with, and how a course of therapy runs.
  *
  * The difficulties list follows Nicola's notes; the last two entries come from
@@ -25,10 +25,13 @@ export class HowICanHelp {
     'Low self-worth',
     'Depression',
     'Post-traumatic stress disorder (PTSD)',
-    'Anxiety, including OCD, social anxiety, health anxiety, phobias, panic, generalised anxiety and body dysmorphia',
+    'Post-natal depression',
+    'Anxiety, including OCD, social anxiety, health anxiety, phobias, panic and generalised anxiety',
    
     'Neurodivergence, with therapy adapted to how you think and process information',
     'Relationship difficulties',
+    'Estrangement',
+    'Long-term conditions',
   ];
 
   /** "How therapy works" — in order, rendered as a numbered list. */
@@ -43,11 +46,11 @@ export class HowICanHelp {
     },
     {
       title: 'Working together',
-      text: 'We explore how you make sense of experiences, the thoughts and beliefs that shape your responses, and practise new ways of thinking and responding. The aim is for you to become your own therapist by developing the knowledge, skills and confidence to use CBT strategies independently in everyday life. This can make therapy more affordable while also promoting greater autonomy and empowerment.',
+      text: 'Together, we explore how your thoughts, beliefs and experiences shape the way you feel and respond, while developing practical strategies to support positive change. The aim is to equip you with the skills and confidence to apply CBT in everyday life.',
     },
     {
       title: 'Consolidation',
-      text: 'Over time, you develop the confidence to draw on your growing self-understanding and new skills in everyday life. By working in a focused, time-limited and cost-effective way, therapy aims to equip you with the tools and confidence to move forward independently, supporting a greater sense of autonomy and empowerment.',
+      text: 'As therapy progresses, you build on your growing self-awareness and skills, developing the confidence to manage future challenges independently. Working in a focused, time-limited way, therapy aims to foster lasting change, autonomy and empowerment.',
     },
   ];
 }

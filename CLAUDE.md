@@ -13,9 +13,9 @@ These replace the shared palette, type and button rules in `../CLAUDE.md` for th
 
   | Class | Background | Body text | Headings | Links, buttons, focus |
   |---|---|---|---|---|
-  | `.section-linen-cream` | `--linen-cream` #EDE5D3 | `--ink-dark` (13.9) | `--deep-teal-dark` (6.0) | `--vermilion` (4.8) |
+  | `.section-cream-light` | `--cream-light` #FAF7F2 | `--ink-dark` (16.3) | `--deep-teal-dark` (7.1) | `--vermilion` (5.6) |
   | `.section-pale-teal` | `--pale-teal` #DCEBE5 | `--ink-dark` (14.1) | `--deep-teal-dark` (6.1) | `--warm-grey` (7.6) — also captions, small print |
-  | `.section-blush-pink` | `--blush-pink` #F4DFE3 | `--ink-dark` (13.7) | `--plum` (7.9) | `--plum` (7.9); list dots `--warm-grey` (7.4) |
+  | `.section-peach` | `--peach` #FBE8C6 | `--ink-dark` (14.5) | `--plum` (8.3) | `--plum` (8.3); list dots `--warm-grey` (7.8) |
   | `.section-deep-teal` | `--deep-teal` #2E6F64 | `--off-white` (5.2) | `--off-white` | `--off-white`; `--ochre-light` (3.8) is for 24px+ headings and decoration only, never body text or links |
   | `.section-dark-plum` | `--dark-plum` #3F2A47 | `--cream-warm` (10.8) | `--ochre` (6.8) | `--pink` (6.8) |
 

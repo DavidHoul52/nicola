@@ -1,5 +1,5 @@
 <main>
-  <section class="page-hero section-linen-cream">
+  <section class="page-hero">
     <div class="page-hero-inner">
       <div>
         <h1 class="page-title fees-title">Fees and practicalities</h1>
@@ -12,7 +12,7 @@
     </div>
   </section>
 
-  <section class="page-section section-linen-cream">
+  <section class="page-section section-cream-light">
     <div class="page-section-inner">
       <div class="fees-table-box">
         <h2 class="fees-table-heading">Fees</h2>
@@ -36,58 +36,79 @@
           </tbody>
         </table>
       </div>
+      <p class="fees-note">
+        We may sometimes decide a longer 90-minute session would be helpful. Fees for 90 minutes
+        are £125 for individuals and £165 for couples.
+      </p>
+      <p class="notice-pill">Availability on Saturdays and Sundays</p>
     </div>
   </section>
 
   <!-- TODO(client): confirm each practicality below. -->
   <section class="page-section section-pale-teal">
     <div class="page-section-inner fees-grid">
+      <!-- Each item is a heading row plus a body row (CSS subgrid), so the photo,
+           placed in the body row, lines up with the paragraphs beside it. Keep
+           every item's text inside .fees-item-body. -->
       <div class="fees-item">
-        <h2 class="fees-item-heading">Where sessions take place</h2>
-        <p>
-          In person at
-          <a href="https://www.wokinghamtherapyclinic.com/" rel="noopener">Wokingham Therapy Clinic</a>.
-        </p>
-        <p>Online therapy can also be arranged.</p>
+        <h2 class="fees-item-heading">Where therapy takes place</h2>
+        <div class="fees-item-body">
+          <p>Therapy is primarily offered face-to-face, with online sessions available where appropriate and by arrangement. Face-to-face therapy offers a dedicated, private space away from everyday distractions, allowing for a more personal therapeutic connection. Being in the same room can also support greater awareness of non-verbal communication, helping to build rapport and create a safe, focused environment for therapeutic work.</p>
+          <p>
+            In person at
+            <a href="https://www.wokinghamtherapyclinic.com/" rel="noopener">Wokingham Therapy Clinic</a>.
+          </p>
+        </div>
       </div>
-      <!-- Decorative painting (abstract town scene). TODO(client): add the image file. -->
-      <div class="img-placeholder fees-image">
-        <img src="images/kandinsky/Landscape with Two Poplars.jpg" alt="" />
+      <!-- Therapy room photo. Decorative here, so alt="". -->
+      <div class="fees-image-cell">
+        <div class="img-placeholder fees-image">
+          <img src="images/room.png" alt="" />
+        </div>
       </div>
       <div class="fees-item">
         <h2 class="fees-item-heading">How often we meet</h2>
-        <p>
-          Sessions are usually weekly. Therapy is time-limited — typically up to 20 weeks — with
-          the option of a consolidation period of less frequent sessions towards the end.
-        </p>
+        <div class="fees-item-body">
+          <p>
+            This depends on the challenges you’re presenting with and will be discussed at the beginning of therapy and reviewed based on progress as we go.    CBT is time limited and is typically up to a maximum of 20 weeks initially, some issues can be worked with in fewer sessions.  Towards the end there’s the option of a consolidation period of less frequent sessions.   
+          </p>
+        </div>
       </div>
       <div class="fees-item">
         <h2 class="fees-item-heading">Payment</h2>
-        <p>Card payment taken at the beginning of the session.</p>
+        <div class="fees-item-body">
+          <p>Payment is due at the end of each session and can be made conveniently by debit or credit card, either in person or via a secure payment link.</p>
+        </div>
       </div>
       <div class="fees-item">
         <h2 class="fees-item-heading">Cancellations</h2>
-        <p>Cancellation notice period and policy to be confirmed.</p>
+        <div class="fees-item-body">
+          <p><i>I kindly ask for at least 48 hours' notice if you need to cancel or rearrange an appointment. Cancellations made with less than 48 hours' notice, or missed appointments, will be charged at the full session fee.</i><p>
+        </div>
       </div>
       <div class="fees-item">
         <h2 class="fees-item-heading">Confidentiality</h2>
-        <p>
-          What you share in therapy stays confidential. The rare exceptions — such as a serious
-          risk to you or someone else — are explained in our first session.
-        </p>
-        <p>
-          How your personal information is stored and used is set out in the
-          <a routerLink="/privacy">privacy notice</a>.
-        </p>
+        <div class="fees-item-body">
+          <p>
+            What you share in therapy stays confidential. The rare exceptions — such as a serious
+            risk to you or someone else — are explained in our first session.
+          </p>
+          <p>
+            How your personal information is stored and used is set out in the
+            <a routerLink="/privacy">privacy notice</a>.
+          </p>
+        </div>
       </div>
       <div class="fees-item">
         <h2 class="fees-item-heading">Health insurance</h2>
-        <p>Details of any insurers I am registered with to be confirmed.</p>
+        <div class="fees-item-body">
+          <p>Details of any insurers I am registered with to be confirmed.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="page-section section-blush-pink">
+  <section class="page-section section-peach">
     <div class="page-section-inner fees-questions">
       <div class="prose">
         <h2>Any other questions?</h2>

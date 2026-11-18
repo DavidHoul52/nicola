@@ -1,8 +1,8 @@
 <main>
-  <section class="page-hero section-linen-cream">
+  <section class="page-hero">
     <div class="page-hero-inner">
       <div>
-        <h1 class="page-title cpl-title">Couples therapy</h1>
+        <h1 class="page-title cpl-title">How I can help with Couples Therapy</h1>
         <p class="page-lead">
         A thoughtful, containing space in which both partners can feel heard and begin to understand what has happened between them.
         </p>
@@ -19,10 +19,13 @@
 
   <!-- Text blocks sit inside a full-width .page-section-inner (rather than
        sharing its element) so they line up on the left with the hero. -->
-  <section class="page-section section-linen-cream">
+  <section class="page-section section-cream-light">
     <div class="page-section-inner page-split">
       <div class="prose">
         <h2>Working with couples</h2>
+        <p>
+          I offer an LGBTQIA+ affirmative approach to couples therapy, providing a safe and supportive space for couples of all sexual orientations, gender identities and relationship structures to explore their experiences, strengthen their connection and navigate challenges without fear of judgement.
+        </p>
         <p>
           Relationships can be a source of great fulfilment, but they can also bring periods of
           difficulty, disconnection and distress. Couples can sometimes find themselves caught in
@@ -84,7 +87,7 @@
     </div>
   </section>
 
-  <section class="page-section section-blush-pink">
+  <section class="page-section section-peach">
     <div class="page-section-inner">
       <div class="prose">
         <h2>Is couples therapy right for us?</h2>
@@ -98,12 +101,27 @@
         </p>
         <p>
           If you’d rather start on your own, I also offer individual therapy —
-          <a routerLink="/how-i-can-help">see how I can help</a>.
+          <a routerLink="/cbt">see how I can help</a>.
         </p>
         <a class="btn btn-primary" routerLink="/contact"
           >Get in touch <span class="btn-icon" aria-hidden="true">→</span></a
         >
       </div>
+    </div>
+  </section>
+
+  <!-- Same numbered steps as the CBT page (global .steps classes). -->
+  <section class="page-section section-deep-teal">
+    <div class="page-section-inner">
+      <h2 class="steps-heading">How therapy works</h2>
+      <ol class="steps">
+        @for (step of steps; track step.title) {
+          <li class="steps-item">
+            <h3 class="steps-title">{{ step.title }}</h3>
+            <p>{{ step.text }}</p>
+          </li>
+        }
+      </ol>
     </div>
   </section>
 </main>

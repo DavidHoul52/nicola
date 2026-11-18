@@ -16,7 +16,7 @@ export const SITE = {
   credentials: 'BABCP-accredited psychological therapist',
   /** Live site origin, no trailing slash. Used to build canonical links. */
   origin: 'https://example.com',
-  email: 'hello@example.com',
+  email: 'NicolaAkhurst.Therapy@proton.me',
   /** Display form of the phone number. Empty hides it. */
   phone: '',
   /** Postal address lines for the footer. Empty hides the address. */

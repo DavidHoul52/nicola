@@ -3,8 +3,7 @@
    Only page-specific rules live here, namespaced with the `fees-` prefix.
    Colours come from the section themes' --section-* variables. */
 
-/* Navy h1, as on the other pages, rather than the linen-cream theme's teal
-   heading colour. Component scoping outranks the theme's heading rule. */
+/* Navy h1 rather than the base --ink heading colour. */
 .fees-title {
   color: var(--navy);
 }
@@ -54,25 +53,46 @@
   font-weight: 400;
   color: inherit;
 }
+/* Note on longer sessions, under the fees table. */
+.fees-note {
+  margin: 1.25rem 0 0;
+  max-width: 65ch;
+}
 .fees-table tbody td:last-child {
   font-family: var(--font-heading);
   font-size: 1.35rem;
   color: var(--section-heading, var(--navy));
 }
 
-/* Practicalities: three columns of short sections, with a painting in the
-   top-middle cell. */
+/* Practicalities: three columns of short sections, with the room photo in the
+   top-middle cell.
+   Each item (and the photo cell) spans two rows of the grid — heading, then
+   body — through subgrid, so items side by side share those rows. The heading
+   row is as tall as the tallest heading in it, and the photo sits in the body
+   row, so its top lines up with the paragraph text whether or not a heading
+   wraps. Row gap is 0 so heading and body stay together; the space between
+   rows of items is each item's padding-bottom, and the grid's negative
+   margin-bottom cancels it after the last row. */
 .fees-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem clamp(2rem, 4vw, 3rem);
+  column-gap: clamp(2rem, 4vw, 3rem);
+  margin-bottom: -3rem;
 }
-.fees-item {
+.fees-item,
+.fees-image-cell {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 2;
   min-width: 0;
+  padding-bottom: 3rem;
 }
 .fees-item-heading {
   font-size: var(--h2-card);
   margin-bottom: 0.75rem;
+}
+.fees-image-cell > .fees-image {
+  grid-row: 2;
 }
 .fees-item p {
   margin: 0;
@@ -91,6 +111,7 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   align-self: start;
+  min-width: 0;
 }
 
 /* "Any other questions?": text on the left, a small painting on the right. */

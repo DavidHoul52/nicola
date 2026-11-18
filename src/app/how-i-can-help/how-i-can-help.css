@@ -11,15 +11,14 @@
   margin-top: 13.5rem;
 }
 
-/* Navy h1, as on the other pages, rather than the linen-cream theme's teal
-   heading colour. Component scoping outranks the theme's heading rule. */
+/* Navy h1 rather than the base --ink heading colour. */
 .hch-title {
   color: var(--navy);
 }
 
 /* The hero lead is an h2 for the outline, but looks like the body-text lead:
-   body font, weight and line height, in the section's text colour rather than
-   its heading colour. Component scoping outranks the theme's heading rule. */
+   body font, weight and line height, in the body text colour (or the
+   section's, if a theme is applied) rather than a heading colour. */
 .hch-lead {
   font-family: var(--font-body);
   font-weight: 400;
@@ -27,45 +26,7 @@
   color: var(--section-text, inherit);
 }
 
-.hch-heading {
-  font-size: var(--h2-sub);
-  margin-bottom: 2rem;
-}
-/* Numbered steps, side by side on wide screens. */
-.hch-steps {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: 2rem clamp(1.5rem, 3vw, 2.5rem);
-  counter-reset: step;
-}
-.hch-step {
-  counter-increment: step;
-  min-width: 0;
-  /* Rule and number follow the section theme when one is applied. */
-  border-top: 1px solid color-mix(in srgb, currentColor 60%, transparent);
-  padding-top: 1.25rem;
-}
-/* 2rem numerals are large text, so the decorative highlight (e.g. ochre on
-   deep teal, 3.8:1) clears the 3:1 AA large-text minimum. */
-.hch-step::before {
-  content: counter(step);
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  line-height: 1;
-  color: var(--section-highlight, var(--navy));
-  margin-bottom: 0.75rem;
-}
-.hch-step-title {
-  font-size: 1.25rem;
-  margin-bottom: 0.6rem;
-}
-.hch-step p {
-  margin: 0;
-}
+/* "How therapy works" uses the global .steps classes in src/styles.css. */
 
 /* Section bands beyond the shared cream-light / mist pair. */
 .hch-band-cream {

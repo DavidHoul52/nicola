@@ -11,8 +11,8 @@ import { NotFound } from './not-found/not-found';
 
 export const routes: Routes = [
   { path: '', component: Landing },
-  { path: 'about', component: About },
-  { path: 'how-i-can-help', component: HowICanHelp },
+  { path: 'experience', component: About },
+  { path: 'cbt', component: HowICanHelp },
   { path: 'couples-therapy', component: CouplesTherapy },
   { path: 'fees', component: Fees },
   { path: 'faqs', component: Faqs },

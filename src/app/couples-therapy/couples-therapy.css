@@ -2,8 +2,7 @@
    Uses the global brand tokens, .btn classes and page layout from src/styles.css.
    Only page-specific rules live here, namespaced with the `cpl-` prefix. */
 
-/* Navy h1, as on the other pages, rather than the linen-cream theme's teal
-   heading colour. Component scoping outranks the theme's heading rule. */
+/* Navy h1 rather than the base --ink heading colour. */
 .cpl-title {
   color: var(--navy);
 }

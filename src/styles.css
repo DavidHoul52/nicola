@@ -31,17 +31,16 @@
   /* Section palette — backgrounds and the text colours that pair with them.
      Applied through the .section-* classes below, not used directly.
      Section backgrounds: */
-  --linen-cream: #ede5d3; /* the composition's background */
   --pale-teal: #dcebe5;
-  --blush-pink: #f4dfe3;
+  --peach: #fbe8c6;
   --deep-teal: #2e6f64;
   --dark-plum: #3f2a47;
   /* Text and accents on those backgrounds: */
   --ink-dark: #1b1a17; /* body text on the light sections */
-  --deep-teal-dark: #1e5e54; /* headings on linen cream and pale teal */
-  --plum: #5a3462; /* headings on blush pink */
-  --vermilion: #b23a1c; /* accent on linen cream */
-  --warm-grey: #4a4640; /* accent on pale teal and blush pink */
+  --deep-teal-dark: #1e5e54; /* headings on cream light and pale teal */
+  --plum: #5a3462; /* headings on peach */
+  --vermilion: #b23a1c; /* accent on cream light */
+  --warm-grey: #4a4640; /* accent on pale teal and peach */
   --off-white: #f6f1e7; /* text on deep teal */
   --ochre-light: #e8cc8a; /* highlight on deep teal — large text only (3.8:1) */
   --cream-warm: #f2ebdc; /* body text on dark plum */
@@ -190,6 +189,33 @@ summary:focus-visible {
   background: none;
 }
 
+/* Short pill-shaped notice (e.g. weekend availability). Block-level but
+   shrink-wrapped to its text; long text wraps inside the pill rather than
+   overflowing. Colours follow the surrounding .section-* theme: text in the
+   section's body colour, outline and faint tint in its accent. */
+.notice-pill {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.5rem 0 0;
+  padding: 0.45rem 1.1rem;
+  border: 1px solid var(--section-accent, var(--navy));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--section-accent, var(--navy)) 8%, transparent);
+  color: var(--section-text, var(--ink));
+  font-size: 0.95rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+/* On dark bands (e.g. the slate call to action): white outline and text, no
+   tint. White on slate is only 5.0:1, and even a faint white fill drops it
+   below AA. */
+.on-dark .notice-pill {
+  border-color: var(--on-dark);
+  background: transparent;
+  color: var(--on-dark);
+}
+
 /* Round blue markers, as in the mockup's "Therapy with me" list. */
 .dot-list {
   list-style: none;
@@ -216,6 +242,11 @@ summary:focus-visible {
 /* Smaller dots, for long lists of short entries. The dot is centred on the
    first line of text (half the 1.65 body line-height, minus half the dot), so
    it stays aligned when an entry wraps. */
+/* Tighter spacing than the full-size list: these sit in boxes and are often
+   long (e.g. the qualifications list). */
+.dot-list-small {
+  gap: 0.5rem;
+}
 .dot-list-small li {
   padding-left: 1.5rem;
 }
@@ -223,6 +254,49 @@ summary:focus-visible {
   width: 0.5rem;
   height: 0.5rem;
   top: calc(0.825em - 0.25rem);
+}
+
+/* Numbered "How therapy works" steps (CBT and Couples therapy pages), side by
+   side on wide screens and stacking as space runs out. Markup:
+     <h2 class="steps-heading">…</h2>
+     <ol class="steps"><li class="steps-item"><h3 class="steps-title">…</h3><p>…</p></li></ol>
+   Colours follow the section theme when one is applied. */
+.steps-heading {
+  font-size: var(--h2-sub);
+  margin-bottom: 2rem;
+}
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 2rem clamp(1.5rem, 3vw, 2.5rem);
+  counter-reset: step;
+}
+.steps-item {
+  counter-increment: step;
+  min-width: 0;
+  border-top: 1px solid color-mix(in srgb, currentColor 60%, transparent);
+  padding-top: 1.25rem;
+}
+/* 2rem numerals are large text, so the decorative highlight (e.g. ochre on
+   deep teal, 3.8:1) clears the 3:1 AA large-text minimum. */
+.steps-item::before {
+  content: counter(step);
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--section-highlight, var(--navy));
+  margin-bottom: 0.75rem;
+}
+.steps-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.6rem;
+}
+.steps-item p {
+  margin: 0;
 }
 
 /* ============================================================
@@ -352,11 +426,11 @@ summary:focus-visible {
      --section-accent     links, buttons, focus ring — AA for small text
      --section-highlight  decorative marks (list dots) and large text only
    ------------------------------------------------------------ */
-.section-linen-cream {
-  --section-bg: var(--linen-cream);
-  --section-text: var(--ink-dark); /* 13.9 */
-  --section-heading: var(--deep-teal-dark); /* 6.0 */
-  --section-accent: var(--vermilion); /* 4.8 */
+.section-cream-light {
+  --section-bg: var(--cream-light);
+  --section-text: var(--ink-dark); /* 16.3 */
+  --section-heading: var(--deep-teal-dark); /* 7.1 */
+  --section-accent: var(--vermilion); /* 5.6 */
   --section-highlight: var(--vermilion);
 }
 .section-pale-teal {
@@ -366,12 +440,12 @@ summary:focus-visible {
   --section-accent: var(--warm-grey); /* 7.6 — also for captions and small print */
   --section-highlight: var(--warm-grey);
 }
-.section-blush-pink {
-  --section-bg: var(--blush-pink);
-  --section-text: var(--ink-dark); /* 13.7 */
-  --section-heading: var(--plum); /* 7.9 */
-  --section-accent: var(--plum); /* 7.9 */
-  --section-highlight: var(--warm-grey);
+.section-peach {
+  --section-bg: var(--peach);
+  --section-text: var(--ink-dark); /* 14.5 */
+  --section-heading: var(--plum); /* 8.3 */
+  --section-accent: var(--plum); /* 8.3 */
+  --section-highlight: var(--warm-grey); /* 7.8 */
 }
 /* Ochre is only 3.8:1 here, below AA for small text, so links and buttons use
    the off-white body colour; ochre is kept for 24px+ headings and decoration. */
@@ -390,25 +464,25 @@ summary:focus-visible {
   --section-highlight: var(--pink);
 }
 
-:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum) {
+:is(.section-cream-light, .section-pale-teal, .section-peach, .section-deep-teal, .section-dark-plum) {
   background: var(--section-bg);
   color: var(--section-text);
 }
-:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum)
+:is(.section-cream-light, .section-pale-teal, .section-peach, .section-deep-teal, .section-dark-plum)
   :is(h1, h2, h3) {
   color: var(--section-heading);
 }
 /* Inline links stay underlined (from .prose) — colour alone isn't enough. */
-:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum)
+:is(.section-cream-light, .section-pale-teal, .section-peach, .section-deep-teal, .section-dark-plum)
   a:not(.btn) {
   color: var(--section-accent);
 }
-:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum)
+:is(.section-cream-light, .section-pale-teal, .section-peach, .section-deep-teal, .section-dark-plum)
   .dot-list
   li::before {
   background: var(--section-highlight);
 }
-:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum)
+:is(.section-cream-light, .section-pale-teal, .section-peach, .section-deep-teal, .section-dark-plum)
   :focus-visible {
   outline-color: var(--section-accent);
 }
@@ -417,24 +491,24 @@ summary:focus-visible {
    outline variants adapt, so either works in any theme. */
 /* Hover swaps fill and outline, so contrast is the same in both states. The
    :hover rules come last and are one pseudo-class more specific, so they win. */
-:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum)
+:is(.section-cream-light, .section-pale-teal, .section-peach, .section-deep-teal, .section-dark-plum)
   .btn-primary {
   background: var(--section-accent);
   border-color: var(--section-accent);
   color: var(--section-bg);
 }
-:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum)
+:is(.section-cream-light, .section-pale-teal, .section-peach, .section-deep-teal, .section-dark-plum)
   :is(.btn-outline, .btn-outline-light) {
   background: transparent;
   border-color: var(--section-accent);
   color: var(--section-accent);
 }
-:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum)
+:is(.section-cream-light, .section-pale-teal, .section-peach, .section-deep-teal, .section-dark-plum)
   .btn-primary:hover {
   background: transparent;
   color: var(--section-accent);
 }
-:is(.section-linen-cream, .section-pale-teal, .section-blush-pink, .section-deep-teal, .section-dark-plum)
+:is(.section-cream-light, .section-pale-teal, .section-peach, .section-deep-teal, .section-dark-plum)
   :is(.btn-outline, .btn-outline-light):hover {
   background: var(--section-accent);
   color: var(--section-bg);

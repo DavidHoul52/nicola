@@ -35,15 +35,15 @@ const CONTACT_SEO: SeoEntry = {
 /** Per-route SEO metadata (title, description, canonical). Add an entry for every new page. */
 const SEO_BY_PATH: Record<string, SeoEntry> = {
   '/': HOME_SEO,
-  '/about': {
-    canonical: `${SITE.origin}/about`,
-    title: `About | ${SITE.name}, ${SITE.tagline}`,
+  '/experience': {
+    canonical: `${SITE.origin}/experience`,
+    title: `Experience & Qualifications | ${SITE.name}, ${SITE.tagline}`,
     description:
       'BABCP-accredited psychological therapist with 23 years in the NHS, trained in couples therapy at Tavistock Relationships.',
   },
-  '/how-i-can-help': {
-    canonical: `${SITE.origin}/how-i-can-help`,
-    title: `How I Can Help | ${SITE.name}`,
+  '/cbt': {
+    canonical: `${SITE.origin}/cbt`,
+    title: `How I Can Help with CBT | ${SITE.name}`,
     description:
       'CBT for anxiety, low mood, relationship and health-related difficulties — time-limited therapy focused on building your own skills.',
   },
@@ -101,7 +101,7 @@ export class App {
   private readonly meta = inject(Meta);
 
   constructor(router: Router, viewportScroller: ViewportScroller) {
-    // Fragment links (e.g. /how-i-can-help#approach) would otherwise land under the
+    // Fragment links (e.g. /cbt#approach) would otherwise land under the
     // sticky header: the router scrolls with window.scrollTo, which ignores CSS
     // scroll-margin, so offset by the header's live height (0 when it's hidden).
     viewportScroller.setOffset(() => [
@@ -146,8 +146,8 @@ export class App {
   /** Header navigation, in display order. Each page also needs a route and an SEO_BY_PATH entry. */
   protected readonly navLinks: NavLink[] = [
     { label: 'Home', link: '/' },
-    { label: 'About', link: '/about' },
-    { label: 'How I can help', link: '/how-i-can-help' },
+    { label: 'Experience', link: '/experience' },
+    { label: 'CBT', link: '/cbt' },
     { label: 'Couples therapy', link: '/couples-therapy' },
     { label: 'Fees & practicalities', link: '/fees' },
     { label: 'FAQs', link: '/faqs' },

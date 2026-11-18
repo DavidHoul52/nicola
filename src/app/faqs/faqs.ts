@@ -27,15 +27,15 @@ export class Faqs {
     {
       question: 'What is CBT?',
       answer: [
-        'Cognitive behavioural therapy (CBT) is a practical, collaborative therapy that looks at how thoughts, feelings, body and behaviour affect one another. We explore the patterns keeping difficulties going now, understand where they came from, and try out new ways of responding.',
+        'Cognitive behavioural therapy (CBT) is a practical, collaborative therapy that looks at how thoughts, feelings, body and behaviour affect one another. We explore the patterns keeping difficulties going now, understand where they came from, and try out new ways of responding. CBT is an evidence-based approach, meaning it has been extensively researched and shown to be effective in helping people manage a range of emotional and psychological difficulties. It is recommended by the National Institute for Health and Care Excellence (NICE) in the UK for a number of mental health conditions.',
       ],
-      more: { label: 'How I can help', link: '/how-i-can-help' },
+      more: { label: 'How I can help using CBT', link: '/cbt' },
     },
     {
       question: 'How many sessions will I need?',
       answer: [
-        'Therapy is time-limited — typically up to 20 weeks. We agree the length together after the first sessions, and review progress as we go.',
-        'Towards the end there is the option of a consolidation period with less frequent sessions, and the chance to return in future if you need to.',
+        'This depends on the difficulty you’re presenting with and will be discussed at the beginning of therapy with and progress is reviewed as we go.    CBT is time limited and is typically up to a maximum of 20 weeks initially, some difficulties can be worked with in fewer sessions. ',
+       
       ],
     },
     {
@@ -50,8 +50,8 @@ export class Faqs {
       more: { label: 'Fees and practicalities', link: '/fees' },
     },
     {
-      question: 'Do you offer online sessions?',
-      answer: ['Where sessions take place is covered on the fees and practicalities page.'],
+      question: 'Where and when are sessions?',
+      answer: ['Appointments are available on Saturdays and Sundays.','Therapy is primarily offered face-to-face at Wokingham Therapy Clinie, with online sessions available where appropriate and by arrangement. Face-to-face therapy offers a dedicated, private space away from everyday distractions, allowing for a more personal therapeutic connection. Being in the same room can also support greater awareness of non-verbal communication, helping to build rapport and create a safe, focused environment for therapeutic work'],
       more: { label: 'Fees and practicalities', link: '/fees' },
     },
     {

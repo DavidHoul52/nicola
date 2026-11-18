@@ -1,11 +1,20 @@
 <main>
-  <section class="page-hero section-linen-cream">
+  <section class="page-hero">
     <div class="page-hero-inner">
       <div>
-        <h1 class="page-title abt-title">About me</h1>
+        <h1 class="page-title abt-title">Experience and Qualifications</h1>
         <p class="page-lead">
-          An experienced psychological therapist offering individual CBT and couples therapy.
+          An experienced psychological therapist offering individual Cognitive Behavioural Therapy (CBT) and couples therapy.
         </p>
+        <div class="page-hero-cta abt-hero-actions">
+          <!-- Back to the "About me" section on the homepage (section id "about"). -->
+          <a class="btn btn-outline" routerLink="/" fragment="about"
+            >About me <span class="btn-icon" aria-hidden="true">→</span></a
+          >
+          <a class="btn btn-outline" routerLink="/contact"
+            >Get in touch <span class="btn-icon" aria-hidden="true">→</span></a
+          >
+        </div>
       </div>
       <!-- Illustration: abstract circles and lines -->
       <div class="img-placeholder page-hero-art page-hero-art-large">
@@ -14,10 +23,9 @@
     </div>
   </section>
 
-  <section class="page-section section-linen-cream">
+  <section class="page-section section-cream-light">
     <div class="page-section-inner page-split">
       <div class="prose">
-        <!-- Linked from the homepage's BABCP "find out more" link (fragment "qualifications"). -->
         <h2 id="qualifications">Qualifications and experience</h2>
         <p>
           My core training is in Cognitive Behavioural Therapy, the approach I use with
@@ -28,13 +36,11 @@
           I have additional <em>integrative</em> training in couples therapy, and am also an
           approved Couple Therapy for Depression practitioner with Tavistock Relationships.
         </p>
-        <p>
-          As a BABCP-accredited therapist, I have demonstrated and continue to uphold the
-          professional standards required in CBT training, clinical experience, therapeutic
-          practice, clinical supervision and ongoing professional development. This accreditation
-          reflects my commitment to delivering safe, effective and high-quality care to my
-          clients.
+          <p>
+          I spent 23 years in the NHS, before setting up my private practice, where I continue to enjoy getting to know and working with each person I see.      
         </p>
+        <p>Before become a psychological therapist I worked as a specialist neurological speech and language therapist with people living with long term and life changing conditions. </p>
+        <p>I witnessed how difficulties in life can affect the whole person including relationships, identity and our sense of what’s possible.  I have extensive experience supporting people with a wide range of psychological and health related difficulties. </p>
         <p>
           I continue to learn and read widely, drawing on ideas from different therapeutic
           traditions. I’m interested in what helps people make lasting changes, develop greater
@@ -62,6 +68,18 @@
               </li>
             }
           </ul>
+        </div>
+
+        <!-- Target of the homepage's "Find out more about the BABCP" button (fragment "babcp"). -->
+        <div class="page-box section-peach" id="babcp">
+          <h2 class="page-box-heading">About the BABCP</h2>
+          <p>
+            As a BABCP-accredited therapist, I have demonstrated and continue to uphold the
+            professional standards required in CBT training, clinical experience, therapeutic
+            practice, clinical supervision and ongoing professional development. This
+            accreditation reflects my commitment to delivering safe, effective and high-quality
+            care to my clients.
+          </p>
         </div>
       </div>
     </div>

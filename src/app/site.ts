@@ -28,7 +28,11 @@ export const SITE = {
  * https://web3forms.com — submissions are emailed to that address. No backend
  * required, which is why this works on a static site.
  *
- * Empty until set: the enquiry form then refuses to submit and points visitors
- * at the email address instead of failing silently.
+ * Public by design: it ships in the JS bundle and only lets a form send to the
+ * registered address. Spam is stopped by hCaptcha (see enquiry.ts), which needs
+ * "Block Spam: hCaptcha" switched on for this form in the Web3Forms dashboard.
+ *
+ * If emptied, the enquiry form refuses to submit and points visitors at the
+ * email address instead of failing silently.
  */
-export const WEB3FORMS_ACCESS_KEY = '';
+export const WEB3FORMS_ACCESS_KEY = '97a319bc-452b-4a7c-86fa-be8e1a9e2afd';

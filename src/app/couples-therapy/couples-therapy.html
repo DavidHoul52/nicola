@@ -1,5 +1,7 @@
 <main>
-  <section class="page-hero">
+  <!-- Compact hero (cpl-hero): the standard-size art rather than the large one,
+       and less padding, so the title band doesn't leave a large blank area. -->
+  <section class="page-hero cpl-hero">
     <div class="page-hero-inner">
       <div>
         <h1 class="page-title cpl-title">How I can help with Couples Therapy</h1>
@@ -11,7 +13,7 @@
         >
       </div>
       <!-- Illustration: abstract circles and lines -->
-      <div class="img-placeholder page-hero-art page-hero-art-large">
+      <div class="img-placeholder page-hero-art cpl-hero-art">
         <img src="images/composition-transparent.png" alt="" />
       </div>
     </div>
@@ -23,51 +25,57 @@
     <div class="page-section-inner page-split">
       <div class="prose">
         <h2>Working with couples</h2>
+
+        <h3>An inclusive, supportive space</h3>
         <p>
-          I offer an LGBTQIA+ affirmative approach to couples therapy, providing a safe and supportive space for couples of all sexual orientations, gender identities and relationship structures to explore their experiences, strengthen their connection and navigate challenges without fear of judgement.
+          I offer an LGBTQIA+ affirmative approach to couples therapy, aiming to provide a
+          respectful, welcoming and non-judgemental space. I recognise and value the diversity of
+          people’s identities, backgrounds and experiences, and seek to understand each couple and
+          their relationship without making assumptions or judgements.
+        </p>
+
+        <h3>Understanding relationship patterns</h3>
+        <p>
+          Relationships can bring great fulfilment, but also periods of difficulty, disconnection
+          and distress. Couples can sometimes become caught in recurring patterns where
+          communication breaks down and attempts to feel heard, understood or reassured lead to
+          further conflict or distance.
         </p>
         <p>
-          Relationships can be a source of great fulfilment, but they can also bring periods of
-          difficulty, disconnection and distress. Couples can sometimes find themselves caught in
-          recurring patterns of interaction, where communication becomes strained and attempts to
-          feel heard, understood or reassured can unintentionally lead to further conflict or
-          distance.
+          Together, we can slow things down and explore what’s happening beneath the surface. This
+          can help you develop a deeper understanding of your own feelings and needs, as well as
+          those of your partner.
+        </p>
+
+        <h3>Finding new ways forward</h3>
+        <p>
+          We can work towards more constructive ways of communicating, managing disagreements and
+          finding solutions together. An important part of this is learning how to reconnect after
+          moments of hurt or misunderstanding, repair difficulties and rebuild trust and emotional
+          closeness.
+        </p>
+
+        <h3>My approach</h3>
+        <p>
+          I work impartially and collaboratively, without taking sides or seeking to establish who
+          is right or wrong. At times, I may gently challenge one or both partners, drawing
+          attention to patterns or dynamics that can be difficult to recognise from within the
+          relationship. My aim is to help you understand each other more fully and explore
+          different ways of relating.
+        </p>
+
+        <h3>What can we work on?</h3>
+        <p>
+          Couples come to therapy for many reasons, including ongoing conflict, communication
+          difficulties, anxiety or stress within the relationship, and the demands of family life.
+          Therapy can also help you navigate significant life changes, such as becoming parents,
+          bereavement, separation or other transitions that place pressure on a relationship.
         </p>
         <p>
-          Working together we can slow things down and make sense of the patterns that unfold
-          between you. We can explore what may be happening beneath the surface of your
-          difficulties, helping each of you to develop a deeper understanding of your own feelings
-          and needs, as well as those of your partner. Where helpful, we can also work towards
-          developing more constructive ways of communicating, managing disagreements and finding
-          solutions together.
-        </p>
-        <p>
-          An important aspect of this work is learning how to reconnect after moments of hurt,
-          disappointment or misunderstanding. Rather than allowing these experiences to create
-          lasting distance, therapy can help you find ways to acknowledge and repair difficulties,
-          rebuild trust and strengthen your emotional connection.
-        </p>
-        <p>
-          My approach as a couples therapist is impartial and collaborative. I do not take sides or
-          seek to establish who is right or wrong. However, I may at times gently challenge one or
-          both partners, drawing attention to patterns or dynamics that may be difficult to
-          recognise from within the relationship, but which could be contributing to
-          dissatisfaction or distress. My aim is to help you understand each other more fully and
-          consider different ways of relating.
-        </p>
-        <p>
-          Couples come to therapy for many different reasons. You may be experiencing ongoing
-          conflict, communication difficulties, anxiety or stress within your relationship, or
-          finding it difficult to navigate the demands of family life. Therapy can also offer
-          support during significant life transitions, such as becoming parents, bereavement,
-          separation or other changes that place new pressures on a relationship.
-        </p>
-        <p>
-          We can also explore the impact of sexual difficulties on your relationship, including how
-          these may affect intimacy, communication and emotional closeness. These issues can be
-          considered as part of our wider therapeutic work, although this is distinct from
-          specialist psychosexual therapy, which focuses more specifically on sexual functioning
-          and difficulties.
+          We can also explore sexual difficulties and their impact on intimacy, communication and
+          emotional closeness. This can form part of our wider couples work, although it is
+          distinct from specialist psychosexual therapy, which focuses more specifically on sexual
+          functioning and difficulties.
         </p>
       </div>
       <div class="page-aside">
@@ -79,11 +87,26 @@
             }
           </ul>
         </div>
-        <!-- Decorative painting (abstract landscape with trees). -->
+        <!-- Decorative painting: Kandinsky, Deepened Impulse (1928), whole canvas. -->
         <div class="img-placeholder cpl-image">
-          <img src="images/kandinsky/poplars-2.jpeg" alt="" />
+          <img src="images/kandinsky/impulses.jpeg" alt="" />
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Same numbered steps as the CBT page (global .steps classes). -->
+  <section class="page-section section-deep-teal">
+    <div class="page-section-inner">
+      <h2 class="steps-heading">How therapy works</h2>
+      <ol class="steps">
+        @for (step of steps; track step.title) {
+          <li class="steps-item">
+            <h3 class="steps-title">{{ step.title }}</h3>
+            <p>{{ step.text }}</p>
+          </li>
+        }
+      </ol>
     </div>
   </section>
 
@@ -107,21 +130,6 @@
           >Get in touch <span class="btn-icon" aria-hidden="true">→</span></a
         >
       </div>
-    </div>
-  </section>
-
-  <!-- Same numbered steps as the CBT page (global .steps classes). -->
-  <section class="page-section section-deep-teal">
-    <div class="page-section-inner">
-      <h2 class="steps-heading">How therapy works</h2>
-      <ol class="steps">
-        @for (step of steps; track step.title) {
-          <li class="steps-item">
-            <h3 class="steps-title">{{ step.title }}</h3>
-            <p>{{ step.text }}</p>
-          </li>
-        }
-      </ol>
     </div>
   </section>
 </main>

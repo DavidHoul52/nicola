@@ -300,8 +300,8 @@ summary:focus-visible {
 }
 
 /* ============================================================
-   Shared page layout — the inner pages (About, How I can help,
-   Couples therapy, Fees, FAQs, Contact) share a title band and
+   Shared page layout — the inner pages (Experience, CBT,
+   Couples therapy, Fees, Contact) share a title band and
    text sections. Layout unique to one page stays in its own CSS.
    ============================================================ */
 .page-hero {
@@ -536,12 +536,19 @@ summary:focus-visible {
   background: var(--pink);
 }
 
+/* Phones: the artwork shrinks to a small, logo-sized mark above the h1
+   (order: -1 moves it ahead of the text in the single column). The width
+   overrides .page-hero-art-large too; same aspect ratio, so nothing crops. */
 @media (max-width: 600px) {
   .page-hero-inner {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
-  .page-hero-art {
-    display: none;
+  .page-hero-art,
+  .page-hero-art-large {
+    order: -1;
+    width: 9rem;
+    justify-self: start;
   }
 }
 
@@ -644,12 +651,13 @@ summary:focus-visible {
 /* Fixed column gap: the header content stops widening at --container, so a
    viewport-scaled gap kept growing on wide screens until the last link wrapped.
    At 1.5rem the seven links need ~750px, leaving ~50px spare beside the
-   wordmark at full width. */
+   wordmark at full width. Re-check at 1181px (just above the collapse
+   breakpoint) whenever a label or this gap changes. */
 .main-nav {
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
+  gap: 0.5rem 1.2rem;
 }
 .main-nav a {
   font-size: 1.1rem;
@@ -735,6 +743,44 @@ summary:focus-visible {
   flex-shrink: 0;
   margin-top: 0.1rem;
 }
+/* Accreditation logos under the contact details. Each sits on a white panel:
+   the logos are drawn for white backgrounds (the BABCP blue is too dark to
+   read on the slate footer, and the PSA mark has its own white ground). A
+   fixed height keeps the two marks the same size; they wrap when narrow. */
+/* The left column is a flex column stretched to the grid row's height (grid
+   items stretch by default), so margin-top: auto drops the logos to its foot,
+   level with the last Quick Links item. Stacked below 960px there's no spare
+   height, so the logos simply follow the contact details. */
+.footer-left {
+  display: flex;
+  flex-direction: column;
+}
+.footer-accreditations {
+  list-style: none;
+  margin: auto 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.footer-accreditations li {
+  background: var(--on-dark); /* white */
+  padding: 0.5rem 0.75rem;
+}
+.footer-accreditations img {
+  height: 3.25rem;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+/* Credential line under the logos. The logos' margin-top: auto pushes this
+   pair down together, so the last line of the column stays level with the
+   last Quick Links item. */
+.footer-dbs {
+  margin: 0.75rem 0 0;
+  font-size: 0.95rem;
+  color: var(--on-dark);
+}
 .footer-section-label {
   font-size: 0.78rem;
   letter-spacing: 0.18em;
@@ -758,6 +804,28 @@ summary:focus-visible {
 }
 .footer-nav a:hover {
   color: var(--on-dark-soft);
+}
+/* "If you need urgent help" — crisis numbers on every page, above the credits. */
+.footer-urgent {
+  max-width: var(--container);
+  margin: 2.5rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.footer-urgent-heading {
+  color: var(--on-dark);
+  font-size: 1.25rem;
+  margin-bottom: 0.6rem;
+}
+.footer-urgent p {
+  max-width: 75ch;
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--on-dark-soft);
+}
+.footer-urgent strong {
+  color: var(--on-dark);
+  white-space: nowrap;
 }
 .footer-bottom {
   max-width: var(--container);
@@ -791,13 +859,20 @@ summary:focus-visible {
   .nav-toggle {
     display: flex;
   }
+  /* Compact stacked list, about half the height of a 0.75rem-gap list, so the
+     page beneath stays in view. Each link is still ~28px tall, above the 24px
+     minimum touch target. */
   .main-nav {
     display: none;
     grid-column: 1 / -1;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.75rem;
-    padding-top: 0.5rem;
+    gap: 0;
+    padding-top: 0.25rem;
+  }
+  .main-nav a {
+    line-height: 1.3;
+    padding: 0.1rem;
   }
   .main-nav.open {
     display: flex;

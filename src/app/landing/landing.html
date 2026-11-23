@@ -28,17 +28,31 @@
       <div class="lnd-about-text">
         <h2 class="lnd-heading">About me</h2>
         <p>
-          I'm an experienced psychological therapist accredited by the British Association
-          for Behavioural and Cognitive Psychotherapies (BABCP), specialising in evidence based
-          Cognitive Behavioural Therapy (CBT) and couples therapy. I completed a postgraduate diploma in CBT at the University of Reading and then additional training course at Tavistock Relationships to work with couples using an ‘integrative approach’.  
+          I’m an experienced psychological therapist, accredited by the
+          <a routerLink="/experience" fragment="babcp"
+            >British Association for Behavioural and Cognitive Psychotherapies (BABCP)</a
+          >, specialising in evidence-based Cognitive Behavioural Therapy (CBT) and couples therapy.
+          I completed a postgraduate diploma in CBT at the University of Reading, followed by
+          further training at Tavistock Relationships, to work with couples using an ‘integrative’
+          approach.
         </p>
-      
-        <p>Having experienced therapy myself, I understand that it can feel daunting, and I’ll do my best to help you feel at ease.</p>
-        <p>My aim is for therapy to be a space where you can feel understood, think about things differently and explore possibilities for change — with someone who brings both professional expertise and genuine human curiosity.</p>
-          <p>
-         I'm warm, curious and down-to-earth, and enjoy using humour when it feels appropriate. I bring experience and knowledge to my work, alongside a genuine interest in each person, their individual circumstances and what makes them who they are. I believe therapy can be thoughtful and meaningful without feeling overly formal or clinical.
+        <p>
+          My aim is to offer a space where you feel understood, can think about things differently
+          and explore possibilities for change, supported by professional expertise, genuine
+          curiosity and human understanding.
         </p>
-        <p>I welcome and value people of all backgrounds, identities, cultures and experiences, recognising and respecting the diversity that makes each person and relationship unique</p>
+        <p>
+          I’m warm and down-to-earth, and enjoy using humour when appropriate. I believe therapy can
+          be thoughtful and meaningful without feeling overly formal or clinical.
+        </p>
+        <p>
+          I welcome and value people of all backgrounds, identities, cultures and experiences,
+          recognising and respecting what makes each person and relationship unique.
+        </p>
+        <p>
+          Having experienced therapy myself, I understand that starting therapy can feel daunting,
+          and I’ll do my best to help you feel at ease.
+        </p>
         <!-- Short pill links under a "Learn more about" label. Each link repeats the
              label for screen readers, so it makes sense read on its own. -->
         <p class="lnd-learn-label" id="lnd-learn-more">Learn more about</p>
@@ -78,14 +92,17 @@
       <div class="lnd-approach-text">
         <h2 class="lnd-heading">What therapy looks like</h2>
         <p>
-          The ways we think, feel, cope and relate to others are often shaped by our earlier experiences and the relationships we've had along the way. Many of the patterns we develop make sense in the context of our past and may once have helped us feel safe or cope with difficult situations. But sometimes these ways of being no longer serve us so well. Therapy can help us make sense of these patterns, understand ourselves better and gradually find different ways of relating to ourselves and others.
+          The ways we think, feel, cope and relate to others are often shaped by our earlier
+          experiences and relationships. Many of the patterns we develop make sense in the context
+          of our past and may once have helped us feel safe or cope with difficult situations.
+          However, they may not always continue to serve us well.
         </p>
         <p>
-          Together, we can explore where these patterns come from, develop a better     understanding of ourselves, and begin to let go of what isn't working. Therapy offers a space to experiment with new ways of thinking, feeling and relating to ourselves and others, with greater kindness, confidence and flexibility. 
+          Together, we can explore where these patterns come from, develop a better understanding of
+          ourselves and begin to let go of what isn’t working. Therapy offers a space to explore new
+          ways of thinking, feeling and relating to ourselves and others, with greater kindness,
+          confidence and flexibility.
         </p>
-        <a class="btn btn-outline" routerLink="/cbt" fragment="approach"
-          >My approach <span class="btn-icon" aria-hidden="true">→</span></a
-        >
       </div>
       <ul class="lnd-approach-list">
         <li class="lnd-approach-item">
@@ -118,6 +135,13 @@
           <span class="lnd-approach-label">Create lasting change</span>
         </li>
       </ul>
+      <!-- Its own grid item: under the paragraphs when the circles sit beside
+           the text, below the circles once they stack. -->
+      <div class="lnd-approach-action">
+        <a class="btn btn-outline" routerLink="/cbt" fragment="approach"
+          >My approach <span class="btn-icon" aria-hidden="true">→</span></a
+        >
+      </div>
     </div>
   </section>
 
@@ -145,20 +169,23 @@
 
   <!-- ============================ CALL TO ACTION ============================ -->
   <section class="lnd-cta on-dark">
+    <!-- Heading, painting and body are siblings in one grid: wide, the painting
+         sits to the right of both; narrow, it stacks between heading and body. -->
     <div class="lnd-cta-inner">
-      <div class="lnd-cta-text">
-        <h2 class="lnd-cta-heading">
-         A space to feel understood, explore new perspectives and experiment with healthier ways of relating to yourself and others. 
-        </h2>
+      <h2 class="lnd-cta-heading">
+        A space to feel understood, explore new perspectives and experiment with healthier ways
+        of relating to yourself and others.
+      </h2>
+      <!-- Decorative painting (abstract landscape). -->
+      <div class="img-placeholder lnd-cta-art">
+        <img src="images/kandinsky/Study for landscape.jpg" alt="" />
+      </div>
+      <div class="lnd-cta-body">
         <p class="lnd-cta-lead">Get in touch to find out how I can help.</p>
         <a class="btn btn-outline-light" routerLink="/contact"
           >Contact me <span class="btn-icon" aria-hidden="true">→</span></a
         >
-        <p class="notice-pill">Availability on Saturdays and Sundays</p>
-      </div>
-      <!-- Illustration: abstract circles and lines (small) -->
-      <div class="img-placeholder lnd-cta-art">
-        <img src="images/kandinsky/Study for landscape.jpg" alt="" />
+        <p class="notice-pill">Available for face-to-face appointments on Saturdays and Sundays</p>
       </div>
     </div>
   </section>

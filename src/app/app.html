@@ -21,8 +21,9 @@
       @for (link of navLinks; track link.label) {
         <a
           [routerLink]="link.link"
+          [fragment]="link.fragment"
           routerLinkActive="active"
-          [routerLinkActiveOptions]="navActiveOptions"
+          [routerLinkActiveOptions]="navActiveOptions(link)"
           ariaCurrentWhenActive="page"
           (click)="closeMenu()"
           >{{ link.label }}</a
@@ -67,17 +68,49 @@
           </p>
         }
       </div>
+
+      <!-- Accreditation marks. They state a credential, so they carry alt text. -->
+      <ul class="footer-accreditations" aria-label="Accreditations">
+        <li>
+          <img
+            src="images/logos/babcp.png"
+            width="656"
+            height="436"
+            alt="BABCP — British Association for Behavioural and Cognitive Psychotherapies"
+          />
+        </li>
+        <li>
+          <img
+            src="images/logos/psa-accredited-register.png"
+            width="814"
+            height="381"
+            alt="Professional Standards Authority accredited register"
+          />
+        </li>
+      </ul>
+      <p class="footer-dbs">Enhanced DBS checked</p>
     </div>
 
     <div class="footer-links">
       <p class="footer-section-label">Quick Links</p>
       <nav class="footer-nav" aria-label="Footer">
         @for (link of navLinks; track link.label) {
-          <a [routerLink]="link.link">{{ link.label }}</a>
+          <a [routerLink]="link.link" [fragment]="link.fragment">{{ link.label }}</a>
         }
       </nav>
     </div>
   </div>
+
+  <!-- Crisis information on every page (moved here from the Contact page). -->
+  <section class="footer-urgent" aria-labelledby="footer-urgent-heading">
+    <h2 class="footer-urgent-heading" id="footer-urgent-heading">If you need urgent help</h2>
+    <p>
+      I’m not able to offer an emergency service, and may not see messages straight away. If you
+      are in crisis or your life is at risk, call <strong>999</strong> or go to A&amp;E. For urgent
+      help that isn’t an emergency, call <strong>NHS 111</strong>. Samaritans are available day and
+      night, free, on <strong>116 123</strong>.
+    </p>
+  </section>
 
   <div class="footer-bottom">
     <div class="footer-credits">

@@ -16,7 +16,7 @@ const TBC = 'To be confirmed';
  * Fees and practicalities page, served at `/fees`.
  *
  * TODO(client): every "To be confirmed" value below and in the template (fees,
- * session lengths, location, payment, cancellation notice, insurers) needs
+ * session lengths, location, payment, cancellation notice) needs
  * Nicola's real details before launch.
  */
 @Component({

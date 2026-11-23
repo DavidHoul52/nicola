@@ -5,7 +5,6 @@ import { About } from './about/about';
 import { HowICanHelp } from './how-i-can-help/how-i-can-help';
 import { CouplesTherapy } from './couples-therapy/couples-therapy';
 import { Fees } from './fees/fees';
-import { Faqs } from './faqs/faqs';
 import { Contact } from './contact/contact';
 import { NotFound } from './not-found/not-found';
 
@@ -15,7 +14,6 @@ export const routes: Routes = [
   { path: 'cbt', component: HowICanHelp },
   { path: 'couples-therapy', component: CouplesTherapy },
   { path: 'fees', component: Fees },
-  { path: 'faqs', component: Faqs },
   { path: 'contact', component: Contact },
   { path: 'privacy', component: Privacy },
   // Post-enquiry confirmation URL used for conversion tracking (e.g. Google Ads).

@@ -42,15 +42,15 @@ export class HowICanHelp {
     },
     {
       title: 'Assessment',
-      text: 'In our first sessions we look at what’s bringing you to therapy, how it affects your life, and what you would like to be different.',
+      text: 'In our first sessions, we explore what’s bringing you to therapy, how difficulties are affecting your life and what may be contributing to them. Together, we begin to make sense of the patterns involved and identify what you’d like to change. We’ll agree some meaningful goals to help give therapy a clear focus and direction.',
     },
     {
       title: 'Working together',
-      text: 'Together, we explore how your thoughts, beliefs and experiences shape the way you feel and respond, while developing practical strategies to support positive change. The aim is to equip you with the skills and confidence to apply CBT in everyday life.',
+      text: 'We explore how your thoughts, beliefs and experiences shape the way you feel and respond. Together, we’ll experiment with different ways of thinking and responding, while developing practical strategies to help you make changes in everyday life.',
     },
     {
       title: 'Consolidation',
-      text: 'As therapy progresses, you build on your growing self-awareness and skills, developing the confidence to manage future challenges independently. Working in a focused, time-limited way, therapy aims to foster lasting change, autonomy and empowerment.',
+      text: 'Towards the end of therapy, we reflect on what you’ve learned and the changes you’ve made. We’ll consider how you can continue to build on these, manage future challenges and maintain progress independently, with greater confidence and self-understanding.',
     },
   ];
 }

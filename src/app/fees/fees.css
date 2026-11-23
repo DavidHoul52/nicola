@@ -121,9 +121,11 @@
   align-items: center;
   gap: clamp(2rem, 5vw, 4rem);
 }
+/* Larger than before so the painting reads at a sensible size; its own
+   956 × 717 proportions so nothing is cropped. */
 .fees-questions-image {
-  width: clamp(180px, 20vw, 250px);
-  aspect-ratio: 3 / 2;
+  width: clamp(240px, 32vw, 420px);
+  aspect-ratio: 956 / 717;
 }
 
 @media (max-width: 960px) {
@@ -141,6 +143,10 @@
   }
   .fees-questions {
     grid-template-columns: 1fr;
+  }
+  .fees-questions-image {
+    width: 100%;
+    max-width: 22rem;
   }
   .fees-table th,
   .fees-table td {

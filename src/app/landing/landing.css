@@ -60,14 +60,16 @@
   max-width: var(--container);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  /* Photo column close to half the width so the portrait reads at a good size
+     beside the (long) About copy. */
+  grid-template-columns: 1.1fr 1.2fr;
   align-items: center;
   gap: clamp(2rem, 5vw, 4rem);
 }
 /* Portrait crop of a landscape photo, held on Nicola (left of the frame's centre). */
 .lnd-about-art {
   width: 100%;
-  max-width: 440px;
+  max-width: 560px;
   aspect-ratio: 4 / 5;
   justify-self: center;
 }
@@ -91,7 +93,6 @@
 }
 /* Links through to the full pages. */
 .lnd-about-text .btn,
-.lnd-approach-text .btn,
 .lnd-therapy-col .btn {
   margin-top: 0.75rem;
 }
@@ -133,11 +134,25 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: clamp(2rem, 5vw, 4rem);
+  column-gap: clamp(2rem, 5vw, 4rem);
+  row-gap: 0;
 }
+/* Side by side: text and the "My approach" button stack in the left column
+   (text at the foot of row 1, button at the top of row 2, so they read as one
+   block) with the circles spanning both rows on the right, centred against
+   them. Stacked below 1180px, source order puts the button under the
+   circles; see the responsive rules. */
 .lnd-approach-text {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: end;
   max-width: 56ch;
+}
+.lnd-approach-action {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
+  padding-top: 0.75rem;
 }
 .lnd-approach-list {
   list-style: none;
@@ -146,6 +161,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
   gap: 1.5rem 1rem;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
 }
 .lnd-approach-item {
   display: flex;
@@ -217,27 +235,43 @@
   color: var(--on-dark);
   padding: clamp(3rem, 6vw, 4.5rem) 1.5rem;
 }
+/* Wide: heading and body stack in the left column, with the painting spanning
+   both rows on the right and centred against them. The heading sits at the
+   bottom of its row and the body at the top of its row, so the two read as one
+   block. Below 960px everything stacks in source order (heading, painting,
+   body); see the responsive rules. */
 .lnd-cta-inner {
   max-width: var(--container);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 2rem;
+  column-gap: 2rem;
+  row-gap: 0.75rem;
 }
 .lnd-cta-heading {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: end;
   color: var(--on-dark);
   font-size: var(--h2-card);
   max-width: 30ch;
-  margin-bottom: 0.75rem;
+}
+.lnd-cta-body {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
 }
 .lnd-cta-lead {
   color: var(--on-dark-soft);
   margin-bottom: 1.5rem;
 }
+/* The painting's own 666 × 490 proportions, so nothing is cropped. */
 .lnd-cta-art {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
   width: 460px;
-  height: auto;
+  aspect-ratio: 666 / 490;
 }
 
 /* ============================ RESPONSIVE ============================ */
@@ -248,13 +282,35 @@
    wrapping three-plus-one beside it. A section-specific breakpoint because
    the problem sits between the site's standard 960px and full width. */
 @media (max-width: 1180px) {
+  /* One column in source order: text, circles, then the "My approach" button. */
   .lnd-approach-inner {
     grid-template-columns: 1fr;
+    row-gap: 2rem;
   }
-  /* Keep the row of circles close to the text width rather than stretched
-     across the whole container. */
+  .lnd-approach-text,
+  .lnd-approach-list,
+  .lnd-approach-action {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .lnd-approach-action {
+    padding-top: 0;
+  }
+  /* Stacked, the text has the full width to itself: let it fill the
+     container (whose 1.5rem padding is the side margin) and reflow with the
+     window. Capped at 80ch so lines stay readable at the top of this range. */
+  .lnd-approach-text {
+    max-width: 80ch;
+  }
+  /* Spread the row of circles across the same 80ch measure as the text, so it
+     lines up with the paragraphs above and never sticks out past them.
+     auto-fit collapses the unused tracks, so the four items share the width.
+     4 × 6.5rem + 3 × 0.75rem = 28.25rem keeps them on one row down to the
+     600px breakpoint, where they switch to two by two. */
   .lnd-approach-list {
-    max-width: 44rem;
+    max-width: 80ch;
+    grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
+    column-gap: 0.75rem;
   }
 }
 
@@ -268,7 +324,7 @@
     justify-self: center;
   }
   .lnd-about-art {
-    max-width: 340px;
+    max-width: 480px;
   }
 
   /* Illustration beside "Therapy with me"; "My style" drops below both. */
@@ -283,8 +339,22 @@
     padding-top: 2rem;
   }
 
+  /* Stacked: the painting drops between the heading and "Get in touch…" at
+     full size (up to its 460px desktop width) instead of shrinking beside
+     the text. */
+  .lnd-cta-inner {
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+  }
+  .lnd-cta-heading,
+  .lnd-cta-art,
+  .lnd-cta-body {
+    grid-column: 1;
+    grid-row: auto;
+  }
   .lnd-cta-art {
-    width: 120px;
+    width: 100%;
+    max-width: 460px;
   }
 }
 
@@ -298,10 +368,14 @@
   .lnd-therapy-art {
     max-width: 160px;
   }
-  .lnd-cta-inner {
-    grid-template-columns: 1fr;
+  /* Hero art becomes a small, logo-sized mark above the h1, as on the inner
+     pages, instead of a large illustration below the text. */
+  .lnd-hero-inner {
+    gap: 1rem;
   }
-  .lnd-cta-art {
-    display: none;
+  .lnd-hero-art {
+    order: -1;
+    width: 9rem;
+    justify-self: start;
   }
 }

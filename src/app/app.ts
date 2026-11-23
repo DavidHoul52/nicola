@@ -37,7 +37,7 @@ const SEO_BY_PATH: Record<string, SeoEntry> = {
   '/': HOME_SEO,
   '/experience': {
     canonical: `${SITE.origin}/experience`,
-    title: `Experience & Qualifications | ${SITE.name}, ${SITE.tagline}`,
+    title: `Professional Background | ${SITE.name}, ${SITE.tagline}`,
     description:
       'BABCP-accredited psychological therapist with 23 years in the NHS, trained in couples therapy at Tavistock Relationships.',
   },
@@ -58,12 +58,6 @@ const SEO_BY_PATH: Record<string, SeoEntry> = {
     title: `Fees and Practicalities | ${SITE.name}`,
     description: `Session fees, location, payment, cancellations and confidentiality for therapy with ${SITE.name}.`,
   },
-  '/faqs': {
-    canonical: `${SITE.origin}/faqs`,
-    title: `FAQs | ${SITE.name}`,
-    description:
-      'Answers to common questions about CBT, couples therapy, session numbers, confidentiality and getting started.',
-  },
   '/contact': CONTACT_SEO,
   // Confirmation URL shows the Contact page, so it shares its canonical.
   '/enquiry-received': CONTACT_SEO,
@@ -78,6 +72,8 @@ interface NavLink {
   label: string;
   /** Router path. */
   link: string;
+  /** Optional in-page target, e.g. the homepage's "about" section. */
+  fragment?: string;
 }
 
 @Component({
@@ -146,11 +142,13 @@ export class App {
   /** Header navigation, in display order. Each page also needs a route and an SEO_BY_PATH entry. */
   protected readonly navLinks: NavLink[] = [
     { label: 'Home', link: '/' },
-    { label: 'Experience', link: '/experience' },
+    // Visitors on phones tend to tap a link rather than scroll the homepage,
+    // so the About me section gets its own entry.
+    { label: 'About me', link: '/', fragment: 'about' },
+    { label: 'My Experience', link: '/experience' },
     { label: 'CBT', link: '/cbt' },
     { label: 'Couples therapy', link: '/couples-therapy' },
     { label: 'Fees & practicalities', link: '/fees' },
-    { label: 'FAQs', link: '/faqs' },
     { label: 'Contact', link: '/contact' },
   ];
 
@@ -158,12 +156,25 @@ export class App {
    * Exact paths so Home isn't underlined on every page. Fragments are ignored,
    * so Contact stays marked when its "enquiry form" link jumps to #enquiry.
    */
-  protected readonly navActiveOptions: IsActiveMatchOptions = {
+  private readonly pageActiveOptions: IsActiveMatchOptions = {
     paths: 'exact',
     queryParams: 'ignored',
     fragment: 'ignored',
     matrixParams: 'ignored',
   };
+
+  /**
+   * Home and About me share the path "/", so on the homepage they are told
+   * apart by fragment: Home is active with no fragment, About me with #about.
+   */
+  private readonly fragmentActiveOptions: IsActiveMatchOptions = {
+    ...this.pageActiveOptions,
+    fragment: 'exact',
+  };
+
+  protected navActiveOptions(link: NavLink): IsActiveMatchOptions {
+    return link.link === '/' ? this.fragmentActiveOptions : this.pageActiveOptions;
+  }
 
   protected toggleMenu(): void {
     this.menuOpen.update((open) => !open);

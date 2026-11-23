@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 /**
- * Experience & Qualifications page, served at `/experience`: Nicola's training
- * and qualifications.
+ * Professional background page, served at `/experience`: Nicola's experience,
+ * BABCP accreditation, and training and qualifications.
  *
  * TODO(client): draft copy built from the homepage text — Nicola to review and
  * extend (e.g. full qualifications and any memberships beyond BABCP).
@@ -32,7 +32,7 @@ export class About {
     },
     { text: 'Advanced NHS training in Cognitive Therapy for Post-Traumatic Stress Disorder' },
     { text: 'NHS training in adapting therapy for neurodiverse clients' },
-    { text: 'Supervision training for CBT Therapists, NHS/IAPT, University of Reading' },
+    { text: 'Supervision training for CBT Therapists in the NHS' },
     { text: 'Considering Attachment Theory in CBT, Oxford Cognitive Therapy Centre' },
     { text: 'Joined-up CBT for Survivors of Childhood Trauma, Oxford Cognitive Therapy Centre' },
     { text: 'Mindfulness-Based Cognitive Therapy, Oxford Mindfulness Centre' },

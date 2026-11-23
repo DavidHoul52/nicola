@@ -7,10 +7,42 @@
   color: var(--navy);
 }
 
-/* Painting under the "Why couples come to therapy" box. Matches the image's
-   own 511 × 391 proportions so nothing is cropped. */
+/* Condensed title band: less vertical padding than the shared .page-hero, and
+   the markup uses the standard (not large) hero art, so the band is about as
+   tall as its text. */
+.cpl-hero {
+  padding-block: clamp(2rem, 4vw, 3rem);
+}
+/* Two equal columns so the art can sit in the middle of the right-hand half
+   (vertically centred by the shared grid's align-items) rather than pinned to
+   the far edge. */
+.cpl-hero .page-hero-inner {
+  grid-template-columns: 1fr 1fr;
+}
+/* Larger than the standard hero art, but capped (300px wide ≈ 325px tall) so
+   it stays within the height of the title, lead and button and the band
+   doesn't grow back. */
+.cpl-hero-art {
+  width: clamp(180px, 24vw, 300px);
+  justify-self: center;
+}
+/* Phones: back to the shared single column with the small art above the h1.
+   These rules outrank the global ones, so they restate them. */
+@media (max-width: 600px) {
+  .cpl-hero .page-hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .cpl-hero-art {
+    width: 9rem;
+    justify-self: start;
+  }
+}
+
+/* Painting under the "Why couples come to therapy" box: the whole canvas in
+   portrait, as the original. Matches the image's own 725 × 954 proportions so
+   nothing is cropped. */
 .cpl-image {
   width: 100%;
-  aspect-ratio: 511 / 391;
-  margin-top: 5.5rem;
+  aspect-ratio: 725 / 954;
+  margin-top: 1.5rem;
 }

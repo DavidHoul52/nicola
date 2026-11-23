@@ -2,13 +2,21 @@
    Uses the global brand tokens, .btn classes and page layout from src/styles.css.
    Only page-specific rules live here, namespaced with the `hch-` prefix. */
 
-/* Medium image placeholder at the foot of the right-hand column. 4:3 so it
-   holds its shape until the real image goes in. */
+/* Painting at the foot of the right-hand column. Matches the image's own
+   703 × 727 proportions so nothing is cropped. */
 .hch-image {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 703 / 727;
   /* Extra space on top of the aside's 1.5rem gap, to separate it from the box. */
   margin-top: 13.5rem;
+}
+/* Stacked (.page-split goes single-column below 960px), the extra offset
+   just leaves a hole under the "My approach" box; the aside's 1.5rem gap is
+   enough. */
+@media (max-width: 960px) {
+  .hch-image {
+    margin-top: 0;
+  }
 }
 
 /* Navy h1 rather than the base --ink heading colour. */

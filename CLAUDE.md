@@ -27,7 +27,7 @@ These replace the shared palette, type and button rules in `../CLAUDE.md` for th
 ## Project-specific notes
 
 - Client details (name, domain, email, phone, address) and the Web3Forms key live in `src/app/site.ts` — read them from there, never hard-code them in templates.
-- Page prefixes: `.lnd-` homepage, `.abt-` about, `.hch-` how I can help, `.cpl-` couples therapy, `.fees-` fees and practicalities, `.faq-` FAQs, `.con-` contact, `.nf-` 404, `.privacy` privacy notice.
+- Page prefixes: `.lnd-` homepage, `.abt-` about, `.hch-` how I can help, `.cpl-` couples therapy, `.fees-` fees and practicalities, `.con-` contact, `.nf-` 404, `.privacy` privacy notice.
 - Inner pages share the global page layout in `src/styles.css` — `.page-hero` (title band + decorative art; add `.page-hero-art-large` to the art for a bigger, more prominent illustration), `.page-section` / `.page-section-alt`, `.page-split` (text beside a `.page-aside` column of `.page-box` panels, each given a `.section-*` theme), the `.section-*` colour themes, `.prose` and `.dot-list`. Use these before adding page CSS.
 - Header and footer nav both render `navLinks` in `app.ts`.
 - Unlike the shared default, the app shell does **not** render the enquiry form: `<app-enquiry />` lives on the Contact page only (also served at `/enquiry-received`). "Get in touch" calls to action link to `/contact`.
